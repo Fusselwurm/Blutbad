@@ -9,7 +9,7 @@
 	Options etc shall be stored in the _LOC object, but for now the wreck is okay, also
 	TODO: dont let it be a team member. this stinks. it even gets a name -.-
 	TODO: localization
-	FIXME: player can drop weapons when pressing some combination of up and throw. evil!
+	FIXME:
 */
 
 local aimStyle; // 1... rotating, 2.. point-to-point
@@ -202,7 +202,7 @@ private func LockVote(string lockType, bool enable) {
 	} else {
 		fmtParam = "disabling";
 	}
-	Message("I vote for %s  the %s lock ", this, fmtParam, lockType);
+	Message("$voted_for$", this, fmtParam, lockType);
 }
 
 protected func HealthLock() {
@@ -255,7 +255,7 @@ private func SetWeapons(id weaponID) {
 		return;
 	}
 
-	Message("Choose weapon #%d !", this, number + 1);
+	Message("$choose_weapon$", this, number + 1);
 	CreateMenu();
 	AddMenuItem("$NapalmThrower$", "SetWeapons", _WFS);
 	AddMenuItem("$Spray$", "SetWeapons", _WSP);
@@ -275,7 +275,7 @@ private func SetWeapons(id weaponID) {
 	AddMenuItem("$Grenades$", "SetWeapons", _WKR);
 	AddMenuItem("$DirtBall$", "SetWeapons", _WDB);
 	AddMenuItem("$HandGun$", "SetWeapons", _WHG);
-	AddMenuItem("$Uzi$", "SetWeapons", _WUZ);
+// 	AddMenuItem("$Uzi$", "SetWeapons", _WUZ);
 }
 
 protected func WeaponsMenu()
@@ -362,14 +362,14 @@ protected func Health()
 		return(Message("$sry_lock_is_on3$"));
 
 	CreateMenu();
-	AddMenuItem("Invincible", "SetHealth", _KC1, 0, 0, 2000000);
-	AddMenuItem("Very tough", "SetHealth", _KC1, 0, 0, 1200000);
-	AddMenuItem("Tough", "SetHealth", _KC1, 0, 0, 700000);
-	AddMenuItem("Hard", "SetHealth", _KC1, 0, 0, 250000);
-	AddMenuItem("Normal", "SetHealth", _KC1, 0, 0, 100000);
-	AddMenuItem("No good", "SetHealth", _KC1, 0, 0, 50000);
-	AddMenuItem("Very bad", "SetHealth", _KC1, 0, 0, 35000);
-	AddMenuItem("One shot - one kill", "SetHealth", _KC1, 0, 0, 10000);
+	AddMenuItem("$Invincible$", "SetHealth", _KC1, 0, 0, 2000000);
+	AddMenuItem("$Very_tough$", "SetHealth", _KC1, 0, 0, 1200000);
+	AddMenuItem("$Tough$", "SetHealth", _KC1, 0, 0, 700000);
+	AddMenuItem("$Hard$", "SetHealth", _KC1, 0, 0, 250000);
+	AddMenuItem("$Normal$", "SetHealth", _KC1, 0, 0, 100000);
+	AddMenuItem("$No_good$", "SetHealth", _KC1, 0, 0, 50000);
+	AddMenuItem("$Very_bad$", "SetHealth", _KC1, 0, 0, 35000);
+	AddMenuItem("$One_shot_one_kill$", "SetHealth", _KC1, 0, 0, 10000);
 }
 
 protected func SetHealth(oID, health) {

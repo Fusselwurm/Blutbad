@@ -19,6 +19,19 @@ livesleft=You have only %d lives left!
 Aim_Style=Aim style is %d| 2.. rotating; 1.. point to point
 Blood_Level=Blood level is now %d
 lives_left_for_player=Lives left for player %d is %d
+voted_for=I vote for %s  the %s lock 
+choose_weapon=Choose weapon #%d! 
+
+#//Health Options
+Invicible=Invincible
+Very_tough=Very tough
+Tough=Tough
+Hard=Hard
+Normal=Normal
+No_good=No good
+Very_bad=Very bad
+One_shot_one_kill=One shot - one kill
+
 
 #//Weapons
 NapalmThrower=Napalm Thrower
