@@ -1,0 +1,7 @@
+[Action]
+Name=Wrecking
+Procedure=NONE
+Delay=1
+FacetBase=1
+StartCall=Wreck
+NextAction=Wrecking

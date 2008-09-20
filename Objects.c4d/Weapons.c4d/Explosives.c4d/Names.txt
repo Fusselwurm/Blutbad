@@ -1,0 +1,3 @@
+DE:Sprengladungen
+US:Explosives
+FI:Räjähdekapselit

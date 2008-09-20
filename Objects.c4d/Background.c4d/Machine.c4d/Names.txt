@@ -1,0 +1,3 @@
+DE:Maschine
+US:Machine
+FI:Laite

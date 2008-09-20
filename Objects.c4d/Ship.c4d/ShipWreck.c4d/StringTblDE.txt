@@ -1,0 +1,42 @@
+Locks=Sperren
+AimingStyle=Fadenkreuzsteuerung
+BloodLevel=Blutmenge
+Lives=Leben
+Health=Lebensenergie
+LoadingTimes=Nachladezeiten
+ChooseWeapons=Waffenauswahl
+DeployPlayer=Spieler entsenden
+ResetWeapons=Waffen zurÃŒcksetzen
+
+have_all_weapons=Du hast bereits alle Waffen!
+something_is_bad=Irgendetwas lÃ€uft hier gehÃ¶rig schief
+sry_lock_is_on=Ups, die Waffenauswahl ist gesperrt!
+sry_lock_is_on2=Ups, die Lebensanzahlsauswahl ist gesperrt!
+sry_lock_is_on3=Ups, die Lebensenergieeinstellung ist gesperrt!
+sry_lock_is_on4=Ups, die Nachladeschnelligkeitsoption ist gesperrt!
+only_one_life=Du hast nur noch ein einziges Leben!
+livesleft=Du hast nur noch %d Leben!
+Aim_Style=Ziel-Modus ist %d| 2.. drehbar; 1.. Punkt zu Punkt
+Blood_Level=Das Blutlevel ist jetzt %d
+lives_left_for_player=Spieler %d hat noch %d Leben
+
+#//Waffen
+NapalmThrower=Flammenwerfer
+Spray=Explosivspray
+DoomsdayRocket=Tag des Juengsten Gerichts
+AntiTankMissile=Panzerfaust
+Larpa=Larpa
+Blaster=Granatwerfer
+Cannon=Kanone
+Hellrider=Hoellenreiter
+MolotovCoctail=Molotowcocktails
+Shotgun=Schrotflinte
+SuperShotgun=Jagdgewehr
+Mines=Minen
+Explosives=Sprengladungen
+Spikeballs=Zinkenkugeln
+Crackler=Prassler
+Grenades=Handgranaten
+DirtBall=Sandkanone
+HandGun=Handfeuerwaffe
+Uzi=Uzi

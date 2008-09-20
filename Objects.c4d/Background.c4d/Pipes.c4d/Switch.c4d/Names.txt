@@ -1,0 +1,3 @@
+DE:Schalter
+US:Switch
+FI:Vipu

@@ -1,0 +1,42 @@
+Locks=Locks
+AimingStyle=Aiming Style
+BloodLevel=Blood Level
+Lives=Lives
+Health=Health
+LoadingTimes=Loading Times
+ChooseWeapons=Choose Weapons
+DeployPlayer=Deploy Player
+ResetWeapons=Reset weapons
+
+have_all_weapons=You already have all the weapons!
+something_is_bad=Something is bad, very bad
+sry_lock_is_on=Sorry, but the lock is on!
+sry_lock_is_on2=Sorry, but the lock is on!
+sry_lock_is_on3=Sorry, but the lock is on!
+sry_lock_is_on4=Sorry, but the lock is on!
+only_one_life=You have only one life left!
+livesleft=You have only %d lives left!
+Aim_Style=Aim style is %d| 2.. rotating; 1.. point to point
+Blood_Level=Blood level is now %d
+lives_left_for_player=Lives left for player %d is %d
+
+#//Weapons
+NapalmThrower=Napalm Thrower
+Spray=Bulletspray
+DoomsdayRocket=Doomsday
+AntiTankMissile=RPG Launcher
+Larpa=Larpa
+Blaster=Blaster
+Cannon=Cannon
+Hellrider=Hellrider
+MolotovCoctail=Molotov Coctail
+Shotgun=Shotgun
+SuperShotgun=Super Shotgun
+Mines=Mines
+Explosives=Explosives
+Spikeballs=Spikeballs
+Crackler=Crackler
+Grenades=Grenades
+DirtBall=Sandgun
+HandGun=Handgun
+Uzi=Uzi

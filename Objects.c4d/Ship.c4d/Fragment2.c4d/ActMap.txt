@@ -1,0 +1,7 @@
+[Action]
+Name=Smoke
+Procedure=NONE
+FacetBase=1
+Delay=5
+NextAction=Smoke
+StartCall=Smoking

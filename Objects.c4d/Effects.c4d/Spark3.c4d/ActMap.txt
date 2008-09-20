@@ -1,0 +1,8 @@
+[Action]
+Name=Sparkle
+Delay=1
+Length=5
+FacetBase=0
+Facet=0,0,3,3
+NextAction=Sparkle
+StartCall=Process

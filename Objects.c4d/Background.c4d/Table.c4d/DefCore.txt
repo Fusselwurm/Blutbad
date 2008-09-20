@@ -1,0 +1,17 @@
+[DefCore]
+id=_BTB
+Name=Tisch
+Category=16
+Value=10
+Mass=75
+Width=39
+Height=18
+Offset=-19,-8
+Picture=0,0,39,18
+Version=4,4,3
+Vertices=4
+VertexX=-14,14,-19,19
+VertexY=9,9,-8,-8
+VertexFriction=100,100,50,50
+MaxUserSelect=1
+Rotate=1

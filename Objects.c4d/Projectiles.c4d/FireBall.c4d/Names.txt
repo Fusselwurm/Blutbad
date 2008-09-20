@@ -1,0 +1,3 @@
+DE:Höllenreiters Feuerball
+US:Hellrider Fireball
+FI:Helvetinratsun tulipallo

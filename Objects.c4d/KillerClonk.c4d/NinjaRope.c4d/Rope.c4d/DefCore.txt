@@ -1,0 +1,12 @@
+[DefCore]
+id=_NR1
+Name=Ninja-Rope
+Category=1
+Width=1
+Height=1
+Value=10
+Mass=15
+Components=METL=3;
+Picture=0,0,1,1
+Vertices=2
+Line=1

@@ -1,0 +1,3 @@
+DE:Schrotflinte
+US:Shotgun
+FI:Haulikko

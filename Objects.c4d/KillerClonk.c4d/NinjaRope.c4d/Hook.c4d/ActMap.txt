@@ -1,0 +1,7 @@
+[Action]
+Name=Hook
+Procedure=FLOAT
+Delay=10
+FacetBase=1
+NextAction=Hook
+EndCall=Hooking

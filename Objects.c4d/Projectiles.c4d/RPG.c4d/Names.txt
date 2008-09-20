@@ -1,0 +1,3 @@
+DE:Panzerabwehrgeschoss
+US:Anti-Tank Rocket
+FI:Panssarintorjuntaohjus

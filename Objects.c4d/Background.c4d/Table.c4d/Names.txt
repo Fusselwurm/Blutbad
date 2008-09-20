@@ -1,0 +1,3 @@
+DE:Tisch
+US:Table
+FI:Pöytä

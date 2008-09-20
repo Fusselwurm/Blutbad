@@ -1,0 +1,3 @@
+DE:Fadenkreuz
+US:Crossair
+FI:Tähtäin

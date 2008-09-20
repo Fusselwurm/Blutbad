@@ -1,0 +1,3 @@
+DE:Cola-Automat
+US:Coke-Machine
+FI:Cokisautomaatti

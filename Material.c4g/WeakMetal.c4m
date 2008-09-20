@@ -1,0 +1,14 @@
+[Material]
+Name=WeakMetal
+Color=0,0,0,30,30,30,60,60,60
+Shape=0
+Density=50
+Friction=80
+BlastFree=1
+Blast2Object=
+Blast2ObjectRatio=
+BlastShiftTo=
+MaxAirSpeed=100
+MaxSlide=1
+Corrode=75
+ 

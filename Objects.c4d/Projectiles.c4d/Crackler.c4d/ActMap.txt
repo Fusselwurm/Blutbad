@@ -1,0 +1,7 @@
+[Action]
+Name=Crackle
+Procedure=NONE
+FacetBase=1
+Delay=1
+NextAction=Crackle
+StartCall=Crackle

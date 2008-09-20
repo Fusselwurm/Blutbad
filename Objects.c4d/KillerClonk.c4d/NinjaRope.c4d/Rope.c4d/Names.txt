@@ -1,0 +1,3 @@
+DE:Ninja-Seil
+US:Ninja-Rope
+FI:Ninja-köysi

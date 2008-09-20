@@ -1,0 +1,10 @@
+[DefCore]
+id=_W__
+Name=Generic Weapon
+Category=1
+MaxUserSelect=1
+Width=1
+Height=1
+Offset=0,0
+Mass=1
+Components=METL=1;

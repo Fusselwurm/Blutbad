@@ -1,0 +1,3 @@
+DE:Granate
+US:Blast-Grenade
+FI:Kranu

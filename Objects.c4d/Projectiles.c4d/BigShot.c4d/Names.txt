@@ -1,0 +1,3 @@
+DE:Projektil
+US:Shot
+FI:Paukku

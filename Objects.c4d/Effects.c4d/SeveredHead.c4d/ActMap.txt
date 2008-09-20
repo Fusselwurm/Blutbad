@@ -1,0 +1,7 @@
+[Action]
+Name=Bleed
+Procedure=NONE
+Delay=1
+FacetBase=1
+NextAction=Bleed
+StartCall=Bleed

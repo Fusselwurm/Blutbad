@@ -1,0 +1,1 @@
+Schaltet das automatische Abfluss-System des Labors ein und aus. In die Nähe des Schalters stellen, um ihn zu betätigen.

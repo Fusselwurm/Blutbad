@@ -1,0 +1,15 @@
+[DefCore]
+id=_HRG
+Name=HelvetinRatsuPanos
+Category=16
+MaxUserSelect=1
+Width=4
+Height=4
+Offset=-1,-1
+Value=1
+Mass=1
+Components=_HRG=1;
+Picture=0,0,4,4
+Vertices=1
+VertexFriction=20
+Rotate=1

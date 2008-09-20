@@ -1,0 +1,16 @@
+[Action]
+Name=Off
+Procedure=NONE
+Delay=50
+FacetBase=1
+NextAction=Off
+EndCall=Check
+
+[Action]
+Name=On
+Procedure=NONE
+Delay=50
+FacetBase=0
+Facet=10,0,10,15
+NextAction=On
+EndCall=Check

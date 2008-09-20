@@ -1,0 +1,14 @@
+[DefCore]
+id=SPK3
+Name=Funke
+Category=2
+Width=3
+Height=3
+Offset=-1,-1
+Mass=1
+Picture=0,0,3,3
+Vertices=1
+VertexFriction=100
+StretchGrowth=1
+NoBurnDecay=1
+ 

@@ -1,0 +1,8 @@
+[Action]
+Name=Fly
+Procedure=NONE
+FacetBase=1
+Delay=1
+Directions=2
+NextAction=Fly
+StartCall=FlyProcess

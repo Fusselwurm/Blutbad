@@ -1,0 +1,17 @@
+[DefCore]
+id=_LPR
+Name=Larparaketti
+Category=16
+MaxUserSelect=1
+Width=12
+Height=5
+Offset=-5,-1
+Value=1
+Mass=10
+NoComponentMass=1
+Components=_LPR=1;
+Picture=0,0,12,5
+Vertices=1
+VertexFriction=20
+Rotate=1
+BlastIncinerate=500

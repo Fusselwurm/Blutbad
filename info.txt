@@ -1,0 +1,42 @@
+Risto-Matti Vuonnala:
+	I got the music files from Daniel, one of my beta-testers. He told me that they are copyright -free. There's a bug in Clonk Planet Engine v4.62 (Daniel told me). The engine crashes, if there's no description and you use "info" on the object.
+
+
+Fusselwurm:
+
+	* syntax in rope, hook, hm... blah... nothing really
+0.20
+	* fix: health settings work. :)
+0.19
+	* fix: clonk won't be deployed into fluids anymore
+	* removed bitmaps from weapons
+	* fix: import Objects.c4d again, molotov cocktail and hellrider work
+0.18
+	* fixed player locks
+	* fixed player option "loading time"
+	* a lot of code shrinkage in shipwreck
+	* more strict syntax (scenario, some projectiles)
+	* renamed weapons directories. Finnish may be cool, but its not very obvious to
+most people ;)
+0.17
+	* fixed reload behaviour. weapons are to only reload if all their ammo has been spent
+	* rocket accelerates properly. great, huh?
+	* some scripts from background.c4d with strict syntax.
+0.16
+	* Explosions with CR graphics
+	* Killerclonk graphics converted to png format
+0.15
+	* rewrite weapons.c4d
+	* reduced time for weapon reload (I guess)
+0.12
+	* clonk explodes properly with body parts
+	* fixed materials (I just overwrote everything with CR materials.c4g)
+0.1
+	* somehow playable in Clonk Rage
+
+known issues:
+	* clonk walking animation too fast
+	* no "intro" effects
+	* lava gets solid too quickly
+	* no weapons balancing
+	* clonk, when standing still, doesnt change overlay when aiming

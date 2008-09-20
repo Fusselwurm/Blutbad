@@ -1,0 +1,11 @@
+[Material]
+Name=Metal
+Color=30,30,30,60,60,60,90,90,90
+Shape=0
+Density=50
+Friction=100
+MaxAirSpeed=100
+MaxSlide=250
+BlastShiftTo=WeakMetal
+Corrode=50
+ 

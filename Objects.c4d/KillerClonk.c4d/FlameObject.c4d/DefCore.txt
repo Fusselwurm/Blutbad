@@ -1,0 +1,17 @@
+[DefCore]
+id=_HFO
+Name=Helper-Flame-Object
+Category=1
+MaxUserSelect=1
+Width=16
+Height=20
+Offset=-7,-18
+Value=1
+Mass=1
+Components=_HFO=1;
+Picture=0,0,16,20
+Vertices=1
+VertexFriction=20
+NoBurnDecay=1
+TimerCall=TimerCall
+Timer=5

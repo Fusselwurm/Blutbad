@@ -1,0 +1,3 @@
+Risto-Matti Vuonnala
+
+2008-09: compatibility with 4.9.9.x, a lot of code-formatting and accidentally destroying things by: Moritz "Fusselwurm" Schmidt

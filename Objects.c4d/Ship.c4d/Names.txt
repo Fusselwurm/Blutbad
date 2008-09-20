@@ -1,0 +1,3 @@
+DE:Truppentransporter
+US:Carrier
+FI:Kuljetusalus

@@ -1,0 +1,15 @@
+[DefCore]
+id=_BSW
+Name=Switch
+Category=1
+MaxUserSelect=1
+Width=10
+Height=15
+Offset=-4,-6
+Value=10
+Mass=1
+Components=METL=1;
+Picture=0,0,10,15
+Vertices=1
+VertexFriction=20
+Grab=2

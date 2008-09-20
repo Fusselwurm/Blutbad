@@ -1,0 +1,3 @@
+DE:Granatewerfer
+US:Blaster
+FI:Kranutin

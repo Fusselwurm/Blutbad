@@ -1,0 +1,1 @@
+This switch turns on the laboratory's automatic draining system. Stand next to this switch and it turns after a while.

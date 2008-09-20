@@ -1,0 +1,14 @@
+[DefCore]
+id=_PC3
+Name=Piece3
+Category=4
+Width=6
+Height=8
+Offset=-2,-3
+Mass=1
+Picture=0,0,6,8
+Vertices=1
+VertexFriction=100
+StretchGrowth=1
+NoBurnDecay=1
+Rotate=1 

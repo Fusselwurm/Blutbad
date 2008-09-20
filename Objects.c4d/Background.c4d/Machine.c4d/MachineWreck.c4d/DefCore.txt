@@ -1,0 +1,18 @@
+[DefCore]
+id=_BMW
+Version=4,4,3
+Name=Wreck Machine
+Category=2
+MaxUserSelect=1
+Width=50
+Height=52
+Offset=-24,-26
+Value=100
+Mass=150
+Picture=0,0,50,52
+Vertices=4
+VertexY=25,25,-25,-25
+VertexX=-25,25,-25,25
+VertexFriction=100,100,50,50
+ContainBlast=1
+Rotate=1

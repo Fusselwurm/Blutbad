@@ -1,0 +1,27 @@
+# Static Map Material/Texture Table
+# Index +128 for underground materials
+
+10=Tunnel-Smooth
+
+20=Wall-Ridge
+
+40=Earth-Smooth
+41=Earth-Rough
+42=Earth-Ridge
+43=Earth-Spots
+44=Earth-Flare
+
+45=Sand-Smooth
+46=Sand-Ridge
+47=Sand-Rough
+48=Sand-Flare
+49=Sand-Spots
+
+60=Metal-Rough
+
+36=Water-Flare
+37=Acid-Flare
+38=DuroLava-Flare
+39=Ashes-Flare
+
+75=ToughMetal-Rough

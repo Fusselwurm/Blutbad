@@ -1,0 +1,3 @@
+DE:Sperre
+US:Lock
+FI:Lukko

@@ -1,0 +1,15 @@
+[DefCore]
+id=_MSL
+Name=Panssarintorjuntaohjus
+Category=16
+MaxUserSelect=1
+Width=12
+Height=7
+Offset=-5,-3
+Value=1
+Mass=1
+Components=_MSL=1;
+Picture=0,0,12,7
+Vertices=1
+VertexFriction=20
+Rotate=1

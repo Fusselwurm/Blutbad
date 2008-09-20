@@ -1,0 +1,13 @@
+[DefCore]
+id=_PC4
+Name=Irtop‰‰
+Category=4
+Width=7
+Height=6
+Offset=0,0
+Vertices=4
+VertexX=0,6,0,6
+VertexY=0,0,7,7
+VertexFriction=50
+ContactIncinerate=1
+FireTop=5

@@ -1,0 +1,13 @@
+[Action]
+Name=Shooting
+Procedure=NONE
+Delay=1
+NextAction=Shooting
+StartCall=DoShoot
+
+[Action]
+Name=Loading
+Procedure=NONE
+Delay=10
+NextAction=Loading
+StartCall=Load

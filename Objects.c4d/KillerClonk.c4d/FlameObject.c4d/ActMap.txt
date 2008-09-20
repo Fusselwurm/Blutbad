@@ -1,0 +1,7 @@
+[Action]
+Name=Palaminen
+Procedure=ATTACH
+FacetBase=1
+Delay=1
+NextAction=Palaminen
+StartCall=Burning

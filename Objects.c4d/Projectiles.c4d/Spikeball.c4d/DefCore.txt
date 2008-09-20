@@ -1,0 +1,15 @@
+[DefCore]
+id=_SKB
+Name=Spikeball
+Category=16
+MaxUserSelect=1
+Width=6
+Height=6
+Offset=-2,-2
+Value=1
+Mass=1
+Components=_SKB=1;
+Picture=0,0,6,6
+Vertices=1
+VertexFriction=100
+Rotate=1

@@ -1,0 +1,7 @@
+[Action]
+Name=Check4Clonk
+Procedure=NONE
+Delay=1
+FacetBase=1
+NextAction=Check4Clonk
+StartCall=Check

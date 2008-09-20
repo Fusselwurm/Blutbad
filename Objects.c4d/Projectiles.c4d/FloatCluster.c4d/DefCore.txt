@@ -1,0 +1,11 @@
+[DefCore]
+id=_FCL
+Name=Floating cluster
+Category=4
+Width=2
+Height=2
+Offset=0,0
+Mass=1
+Picture=0,0,2,2
+Vertices=1
+VertexFriction=100

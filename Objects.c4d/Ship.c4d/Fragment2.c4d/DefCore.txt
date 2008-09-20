@@ -1,0 +1,16 @@
+[DefCore]
+id=_SF2
+Name=Fragment
+Category=16
+Width=15
+Height=30
+Offset=-7,-15
+Value=4
+Mass=10
+Components=_METL=1;
+Picture=0,0,15,30
+Vertices=2
+VertexX=-4,4
+VertexY=-7,10
+VertexFriction=20,50,100
+Rotate=1

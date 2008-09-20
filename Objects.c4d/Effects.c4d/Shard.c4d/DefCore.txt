@@ -1,0 +1,15 @@
+[DefCore]
+id=SHRD
+Name=Shard
+Category=4
+Width=5
+Height=5
+Offset=-2,-2
+Mass=1
+Picture=0,0,5,5
+Vertices=1
+VertexFriction=100
+StretchGrowth=1
+NoBurnDecay=1
+Rotate=1
+ 

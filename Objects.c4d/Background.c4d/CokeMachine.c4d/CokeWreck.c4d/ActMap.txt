@@ -1,0 +1,7 @@
+[Action]
+Name=Canning
+FacetBase=1
+Procedure=NONE
+Delay=10
+NextAction=Canning
+StartCall=Can

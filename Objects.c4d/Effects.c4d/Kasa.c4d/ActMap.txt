@@ -1,0 +1,16 @@
+[Action]
+Name=TimeI
+Procedure=NONE
+Facet=0,0,8,5
+Length=1
+Delay=150
+EndCall=Disappear
+
+[Action]
+Name=TimeII
+Procedure=NONE
+FacetBase=0
+Facet=8,0,8,5
+Length=1
+Delay=150
+EndCall=Disappear

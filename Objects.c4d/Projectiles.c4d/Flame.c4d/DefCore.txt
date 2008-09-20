@@ -1,0 +1,16 @@
+[DefCore]
+id=_FLM
+Name=Flamme
+Category=4
+Width=16
+Height=20
+Offset=-8,-9
+Mass=1
+Picture=0,0,16,20
+Vertices=1
+VertexY=3
+VertexFriction=100
+Float=8
+StretchGrowth=1
+NoBurnDecay=1
+Oversize=1 

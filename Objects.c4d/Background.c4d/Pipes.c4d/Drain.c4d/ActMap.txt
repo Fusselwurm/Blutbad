@@ -1,0 +1,15 @@
+[Action]
+Name=Still
+Procedure=NONE
+Delay=10000
+FacetBase=1
+NextAction=Still
+
+[Action]
+Name=Drain
+Procedure=NONE
+Delay=1
+FacetBase=1
+NextAction=Drain
+StartCall=Imu
+Sound=Pumper

@@ -1,0 +1,7 @@
+[Action]
+Name=Delay
+Procedure=NONE
+FacetBase=1
+Delay=1
+NextAction=Delay
+StartCall=Time

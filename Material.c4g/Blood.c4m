@@ -1,0 +1,10 @@
+[Material]
+Name=Blood
+Color=200,0,0,230,0,0,220,0,0
+ColorAnimation=1
+Density=25
+Instable=1
+MaxAirSpeed=25
+MaxSlide=10000
+WindDrift=30
+Extinguisher=1

@@ -1,0 +1,3 @@
+DE:Kanone
+US:Cannon
+FI:Kanuuna
