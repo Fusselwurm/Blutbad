@@ -4,7 +4,11 @@ Risto-Matti Vuonnala:
 
 Fusselwurm:
 
+	... discontinuing changelog, as i have svn log now  :)
+rev3
 	* syntax in rope, hook, hm... blah... nothing really
+	* fixed aim style
+	* changed larpa
 0.20
 	* fix: health settings work. :)
 0.19

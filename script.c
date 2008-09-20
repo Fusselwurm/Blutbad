@@ -5,7 +5,24 @@ The player's options are stored either in the Sipwrek or in their "lock" or "opt
 
 */
 
-func Initialize()
+//-------------------------------------
+
+/**
+ * Returns position of needle in haystack or -1
+ * @param haystack Array in which to search
+ * @param needle the thing which is searched for...
+ */
+global func IndexOfArray(array haystack, needle) {
+	var len = GetLength(haystack);
+	for (var i = 0; i < len; i++) {
+		if (haystack[i] == needle) {
+			return(i);
+		}
+	}
+	return(-1);
+}
+
+protected func Initialize()
 {
 	// create 30 stones, flints and bones at random places.
 	var tmp1, tmp2;

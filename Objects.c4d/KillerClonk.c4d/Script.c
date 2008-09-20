@@ -87,6 +87,11 @@ public func setAimStyle(int style)
 	SetR(0, _CR1_myCrosshair);
 }
 
+public func getAimStyle()
+{
+	return aimStyle;
+}
+
 public func getWreck()
 {
 	return(_AEW_myWreck);
@@ -120,7 +125,6 @@ protected func ControlThrowSingle()  // Crosshair up!
 		_CR1_myCrosshair->PntToPntUp();
 		return(1);
 	}
-
 
 	// If the crosshair is rotating, STOP IT!
 	if (GetRDir(_CR1_myCrosshair) != 0) {

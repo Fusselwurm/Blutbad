@@ -78,7 +78,7 @@ protected func DeployPlayer()
 	MakeCrewMember(_KC1_player, GetOwner());
 	Exit(_KC1_player, 0, 0, 0, RandomX(-3, 3), 100 + Random(50));
 	SetCursor(GetOwner(), _KC1_player);
-	if (aimStyle == 2)
+	if (aimStyle == 2) // TODO: why are we doing this?
 	{
 		// turn player
 		SetR(0, _KC1_player);
@@ -290,10 +290,11 @@ protected func WeaponsMenu()
 
 protected func AimStyle()
 {
-	if (aimStyle == 1)
+	if (aimStyle == 1) {
 		setAimStyle(2);
-	if (aimStyle == 2)
+	} else {
 		setAimStyle(1);
+	}
 
 	Message("$Aim_Style$", this, aimStyle);
 }
@@ -301,8 +302,9 @@ protected func AimStyle()
 private func setAimStyle(style)
 {
 	aimStyle = style;
-	if (_KC1_player)
+	if (_KC1_player) { // maybe we're calling this from the menu without a live clonk out there...
 		_KC1_player->setAimStyle(aimStyle);
+	}
 }
 
 protected func BloodLevel()

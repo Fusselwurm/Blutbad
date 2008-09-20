@@ -16,16 +16,16 @@ sry_lock_is_on3=Ups, die Lebensenergieeinstellung ist gesperrt!
 sry_lock_is_on4=Ups, die Nachladeschnelligkeitsoption ist gesperrt!
 only_one_life=Du hast nur noch ein einziges Leben!
 livesleft=Du hast nur noch %d Leben!
-Aim_Style=Ziel-Modus ist %d| 2.. drehbar; 1.. Punkt zu Punkt
+Aim_Style=Ziel-Modus ist %d| 1.. drehbar; 2.. Punkt zu Punkt
 Blood_Level=Das Blutlevel ist jetzt %d
 lives_left_for_player=Spieler %d hat noch %d Leben
 voted_for=Ich bin dafür, das %s-Lock %zuschalten
-choose_weapon=Waehle Waffe Nummer %d!
+choose_weapon=Wähle Waffe Nummer %d!
 
 #//Lebensenergieeinstellungen
 Invincible=Unverwundbar
 Very_tough=Sehr robust
-Tough=ZÃ¤h
+Tough=Zäh
 Hard=Hart im Nehmen
 Normal=Normal
 Not_good=Nichts taugend
@@ -35,12 +35,12 @@ One_shot_one_kill=Ein Schuss, ein Toter
 #//Waffen
 NapalmThrower=Flammenwerfer
 Spray=Explosivspray
-DoomsdayRocket=Tag des Juengsten Gerichts
+DoomsdayRocket=Tag des Jüngsten Gerichts
 AntiTankMissile=Panzerfaust
 Larpa=Larpa
 Blaster=Granatwerfer
 Cannon=Kanone
-Hellrider=Hoellenreiter
+Hellrider=Höllenreiter
 MolotovCoctail=Molotowcocktails
 Shotgun=Schrotflinte
 SuperShotgun=Jagdgewehr
