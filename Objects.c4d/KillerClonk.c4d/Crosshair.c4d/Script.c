@@ -59,8 +59,8 @@ public func switchDirection(dir) {
 		if (r < -180) {
 			r = r + 360;
 		}
-
-		SetR(r);
+		//Log(Format("switchDirection - SetR: %d", r));
+		InternalSetR(r);
 	}
 }
 
@@ -73,27 +73,38 @@ protected func Check()
 	var dir = controllingObject->getDirSecure();
 
 	if (dir == COMD_Right) {
-		if (r < -89) {
-
-			SetR(-89);
+		if (r == -90) {
+			//Log(Format("1Check - SetR: %d", r));
 			StopRotating();
+			InternalSetR(-89);
+		} else if (r < -90) { // check if crosshair goes over the  top
+			//Log(Format("2Check - SetR: %d", r));
+			StopRotating();
+			switchDirection(COMD_Right);
+		} else if ((r > 45) && (r <= 90)) { // crosshair's going too far down
+			//Log(Format("3Check - SetR: %d", r));
+			StopRotating();
+			InternalSetR(44);
+		} else if (r > 90) { //crosshair is somehow *on the wrong side*
+			//Log(Format("4Check - SetR: %d", r));
+			switchDirection(COMD_Right);
 		}
-		else if (r > 45) {
-
-			SetR(44);
+	} else if (dir == COMD_Left) {
+		if ((r < 136) && (r >= 90)) { // crosshair's going too far down
+			//Log(Format("5Check - SetR: %d", r));
 			StopRotating();
-		}
-	}
-	else if (dir == COMD_Left){
-		if ((r < 136) && (r > 0)) {
-
-			SetR(136);
+			InternalSetR(136);
+		} else if ((r < 90) && (r > 0)) { //crosshair is somehow *on the wrong side*
+			//Log(Format("6Check - SetR: %d", r));
+			switchDirection(COMD_Left);
+		} else if ((r > -89) && (r < 0)) { // check if crosshair goes over the  top
+			//Log(Format("7Check - SetR: %d", r));
 			StopRotating();
-		}
-		else if ((r > -91) && (r < 0)) {
-
-			SetR(-91);
+			switchDirection(COMD_Left);
+		} else if (r == -90) { // check if crosshair goes over the  top
+			//Log(Format("8Check - SetR: %d", r));
 			StopRotating();
+			InternalSetR(-91);
 		}
 	}
 	return(1);
@@ -131,7 +142,7 @@ private func SetUpRight() {
 	} else {
 		r = directionsRight[i + 1];
 	}
-	SetR(r);
+	InternalSetR(r);
 }
 
 private func SetDownRight() {
@@ -145,7 +156,7 @@ private func SetDownRight() {
 	} else {
 		r = directionsRight[i - 1];
 	}
-	SetR(r);
+	InternalSetR(r);
 }
 
 
@@ -160,7 +171,7 @@ private func SetUpLeft() {
 	} else {
 		r = directionsLeft[i + 1];
 	}
-	SetR(r);
+	InternalSetR(r);
 }
 
 private func SetDownLeft() {
@@ -174,5 +185,13 @@ private func SetDownLeft() {
 	} else {
 		r = directionsLeft[i - 1];
 	}
+	InternalSetR(r);
+}
+
+/**
+ * so that I can write a debug message before InternalSetR() occurs ;)
+ */
+private func InternalSetR(r) {
+	//Log(Format("SetR: %d", r));
 	SetR(r);
 }

@@ -4,19 +4,12 @@
 //TODO: don't raise the delay, but increase walk animation length from 8 to 16 (like with the the normal clonk)
 /*-- TappajaClonk --*/
 
-/* Locals */ //obsolete
-
-// 0 Crosshair
-// 1 The crewcarrier
-// 2 Grapplin' hook
-// 3 Flame
-
 local _AEW_myWreck;
 local _CR1_myCrosshair;
 local aimStyle;
 local isChangingDir;
 local _HK1_myGrapplingHook; // exists only temporarily, created when fired
-local myFlame; // if assgned, i'm on fire. ouch its hot!
+local myFlame; // if assigned, i'm on fire. ouch its hot!
 
 /* Initialize */
 protected func Initialize()
@@ -31,7 +24,7 @@ protected func Initialize()
 	_CR1_myCrosshair = CreateObject(_CR1);
 
 	// The crosshair attached to the clonk
-	_CR1_myCrosshair->Attach(this());
+	_CR1_myCrosshair->Attach(this);
 
 	// Walk!
 	SetAction("Walk");
@@ -111,8 +104,7 @@ private func IsAimAllowed()
 			  (action == "SpecDig") ||
 			  (action == "Push") ||
 			  (action == "Swim") ||
-			  (action == "Dead") ||
-			  (action == "Scale")));
+			  (action == "Dead")));
 }
 
 protected func ControlThrowSingle()  // Crosshair up!
@@ -422,10 +414,11 @@ protected func JumpCheck()  // C's position check while jumping
 /* Redefine */
 
 /*TODO: why?*/
-public func Redefine()
+public func Redefine(id def)
 {
+	Log("REDEFINE - TODO: WHEN DOES THIS HAPPEN?");
 	// Change definition
-	ChangeDef (Par(0));
+	ChangeDef (def);
 
 	SetAction ("Walk");
 

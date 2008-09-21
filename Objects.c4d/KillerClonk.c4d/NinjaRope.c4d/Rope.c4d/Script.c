@@ -1,19 +1,18 @@
-/* The rope */
+#strict 2
+/* The rope attaches to the hook and the clonk.*/
 
-/*
+public func Beam(object hook, object user) {
+	SetAction("Connect", hook, user);
+	var x = GetX();
+	var y = GetY();
+	SetVertex(0, 0, x);
+	SetVertex(0, 1, y);
+	SetVertex(1, 0, x);
+	SetVertex(1, 1, y);
+	ForcePosition(this, 0, 0);
+}
 
-This rope attaches to the hook and the clonk. This pulls the clonk towards the hook.
-
-*/
-
-Beam:
-	SetAction("Connect", Par (), Par (1));
-	SetVertex(0,0,GetX()); SetVertex(0,1,GetY());
-	SetVertex(1,0,GetX()); SetVertex(1,1,GetY());
-	ForcePosition(this(),0,0);
-	return(1);
-
-LineBreak:
+protected func LineBreak() { //DANGER: if this occurs, the hook may not know that the rope is gone
 	Sound("LineBreak");
-	RemoveObject ();
-	return(1);
+	RemoveObject();
+}

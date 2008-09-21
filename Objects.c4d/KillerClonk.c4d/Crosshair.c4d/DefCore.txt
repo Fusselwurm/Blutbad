@@ -14,8 +14,8 @@ Version=4,6,1
 Vertices=1
 VertexX=0
 VertexY=0
-VertexFriction=20
-
+VertexFriction=0
+ContactCalls=0
 MaxUserSelect=1
 Rotate=1
 
