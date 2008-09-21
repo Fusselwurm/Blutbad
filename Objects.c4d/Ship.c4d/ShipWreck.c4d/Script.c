@@ -198,9 +198,9 @@ protected func LockMenu()
 private func LockVote(string lockType, bool enable) {
 	var fmtParam;
 	if (enable) {
-		fmtParam = "enabling";
+		fmtParam = "$enable$";
 	} else {
-		fmtParam = "disabling";
+		fmtParam = "$disable$";
 	}
 	Message("$voted_for$", this, fmtParam, lockType);
 }
@@ -210,7 +210,7 @@ protected func HealthLock() {
 	if (!options)  return(Log("$something_is_bad$ :("));
 
 	var lock = !options->getHealthLock();
-	LockVote("health", lock);
+	LockVote("$live_energy_options$", lock);
 	options->setHealthLock(lock);
 }
 
@@ -219,7 +219,7 @@ protected func LoadLock() {
 	if (!options)  return(Log("$something_is_bad$ :("));
 
 	var lock = !options->getLoadTimesLock();
-	LockVote("load times", lock);
+	LockVote("$reload_options$", lock);
 	options->setLoadTimesLock(lock);
 }
 
@@ -228,7 +228,7 @@ protected func WeapLock() {
 	if (!options)  return(Log("$something_is_bad$ :("));
 
 	var lock = !options->getWeaponsLock();
-	LockVote("weapons", lock);
+	LockVote("$weapon_selection$", lock);
 	options->setWeaponsLock(lock);
 }
 
@@ -237,7 +237,7 @@ protected func LivesLock() {
 	if (!options)  return(Log("$something_is_bad$ :("));
 
 	var lock = !options->getLivesLock();
-	LockVote("lives", lock);
+	LockVote("$health_options$", lock);
 	options->setLivesLock(lock);
 }
 

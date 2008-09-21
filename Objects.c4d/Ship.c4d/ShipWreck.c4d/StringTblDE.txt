@@ -16,19 +16,20 @@ livesleft=Du hast nur noch %d Leben!
 Aim_Style=Ziel-Modus ist %d| 1.. drehbar; 2.. Punkt zu Punkt
 Blood_Level=Das Blutlevel ist jetzt %d
 lives_left_for_player=Spieler %d hat noch %d Leben
-voted_for=Ich bin dafür, das %s-Lock %zuschalten
+voted_for=Ich bin für das %s der %s-Sperre 
 choose_weapon=Wähle Waffe Nummer %d!
 
 weapon_selection=Waffenauswahl
 health_options=Lebensanzahlsauswahl
 reload_options=Nachladeschnelligkeitsoption
 live_energy_options=Lebensenergieoption
+enable=Anschalten
+disable=Ausschalten
 
-
-#//Sperrungsmenü
+#Sperrungsmenü
 Lock= %s sperren
 
-#//Lebensenergieeinstellungen
+#Lebensenergieeinstellungen
 Invincible=Unverwundbar
 Very_tough=Sehr robust
 Tough=Zäh
@@ -38,7 +39,7 @@ No_good=Nichts taugend
 Very_bad=Wirklich übel
 One_shot_one_kill=Ein Schuss, ein Toter
 
-#//Meldungen
+#Meldungen
 Will_die=Du wirst sterben!
 Very_vulnerable=Du bist nun sehr verwundbar!
 Not_tough=Du bist jetzt ziemlich schwach!
@@ -48,7 +49,7 @@ Tough2=Du bist jetzt ziemlich zäh!
 Very_tough2=Du bist jetzt sehr robust!
 Invincible2=Du bist nun unverwundbar!
 
-#//Waffen
+#Waffen
 NapalmThrower=Flammenwerfer
 Spray=Explosivspray
 DoomsdayRocket=Tag des Jüngsten Gerichts
