@@ -275,7 +275,7 @@ private func SetWeapons(id weaponID) {
 	AddMenuItem("$Grenades$", "SetWeapons", _WKR);
 	AddMenuItem("$DirtBall$", "SetWeapons", _WDB);
 	AddMenuItem("$HandGun$", "SetWeapons", _WHG);
-// 	AddMenuItem("$Uzi$", "SetWeapons", _WUZ);
+ 	AddMenuItem("$Uzi$", "SetWeapons", _WUZ);
 }
 
 protected func WeaponsMenu()

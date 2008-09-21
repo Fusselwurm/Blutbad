@@ -279,11 +279,9 @@ protected func ControlSpecialDouble()  // Stop shootin' action
 
 protected func ControlSpecial2() // Change weapon
 {
-	//Contents()->WeapOff(); // od
-	Contents()->DisArm(); // new
+	Contents()->DisArm();
 	ShiftContents();
-	//Contents()->Weapon(); //old
-	Contents()->Arm(this); // new
+	Contents()->Arm(this);
 	return(1);
 }
 
@@ -356,7 +354,7 @@ protected func ControlDownDouble()  // Dig, dug, dug
 
 protected func ControlCommand()
 {
-  // Does not do anything
+	// Does not do anything
 	return(1);
 }
 
@@ -364,14 +362,8 @@ protected func ControlCommand()
 
 private  func SpecDigging()  // Diggin'
 {
-	// Dig
-	DigFree(Sum (GetX(), Kosini (5)), Sum (GetY(), Sini (5)), 12);
-
-	// Sound
+	DigFree(GetX() + Cos(getAimAngle() * 5), GetY() + Sin(getAimAngle() * 5), 12);
 	Sound("Dig*");
-
-	// Done!
-	return(1);
 }
 
 private func AimAngleToActionParameter(angle) {
@@ -390,12 +382,6 @@ private func AimAngleToActionParameter(angle) {
 		return(6);
 	else if (Inside(angle, 34, 57) || Inside(angle, 123, 146))
 		return(7);
-
-
-	// differenz angles are illegal. the following lines are from the original version of this script, i suspect they were pretty obsolete back then
-		//   if (Inside (getAimAngle(), 58, 76)) SetVar (1, 6); // illegal
-		//   if (Inside (getAimAngle(), 77, 103)) SetVar (1, 7); // illegal
-		//   if (Inside (getAimAngle(), 104, 122)) SetVar (1, 6); // illegal
 
 }
 
@@ -418,9 +404,9 @@ public func Redefine(id def)
 {
 	Log("REDEFINE - TODO: WHEN DOES THIS HAPPEN?");
 	// Change definition
-	ChangeDef (def);
+	ChangeDef(def);
 
-	SetAction ("Walk");
+	SetAction("Walk");
 
 	return(1);
 }
@@ -428,93 +414,65 @@ public func Redefine(id def)
 protected func LaunchHook()  // Shoot the g-hook
 {
   // If there is already a hook, then quit
-  if (_HK1_myGrapplingHook)
-    return(1);
+	if (_HK1_myGrapplingHook)
+		return(1);
 
-  _HK1_myGrapplingHook = CreateContents(_HK1);
+	_HK1_myGrapplingHook = CreateContents(_HK1);
 
-  // X coordinate
-  SetVar (1, Kosini (5));
+	var r = getAimAngle();
+	var x = Cos(r, 5);
+	var y = Sin(r, 5);
+	var xDir = Cos(r, 20);
+	var yDir = Sin(r, 20);
+	Exit(_HK1_myGrapplingHook, x, y, Random(360), xDir, yDir, Random(20));
 
-  // Y coordinate
-  SetVar (2, Sini (5));
-
-  // X direction
-  SetVar (4, Kosini (20));
-
-  // Y direction
-  SetVar (5, Sini (20));
-
-  // Angle
-  SetVar (3, Random (360));
-
-  // Shoot!
-  Exit (_HK1_myGrapplingHook, Var (1), Var (2), Var (3), Var (4), Var (5), Var (3));
-
-  // Activate the hook
-  _HK1_myGrapplingHook->Launch(this);
-
-  // Done!
-  return(1);
+	// Activate the hook
+	_HK1_myGrapplingHook->Launch(this);
 }
 
-// TODO: syntax. called by the hook, btw
+/**
+ * Called by the Hook.
+ */
 public func Fly2Hook()  // The hook pulls the clonk
 {
+	// Jump, so it's easy to pull
+	Jump();
 
-  // Jump, so it's easy to pull
-  Jump();
+	// Hang to the other end of the rope
+	SetAction("ToHook");
 
-  // Hang to the other end of the rope
-  SetAction ("ToHook");
+	// Powerful pull
+	var xDir = GetXDir();
+	var yDir = GetYDir();
 
-  // X dir
-  SetVar (8, GetXDir());
+	SetXDir(xDir + Cos(AngleToHook(), 40));
+	SetYDir(yDir + Sin(AngleToHook(), 40));
 
-  // Y dir
-  SetVar (9, GetYDir());
-
-  // Powerful pull
-  SetXDir (Sum (Var (8), Kosini2 (40)));
-  SetYDir (Sum (Var (9), Sini2 (40)));
-
-  // Done!
-  return(1);
 }
 
 protected func Hooking()
 {
-
 	// TODO: she hook should pull along the way the rope goes... not just in the hook's direction
   // The hook is pullin'
-	if (Not (LessThan (Distance (GetX(), GetY(), GetX (_HK1_myGrapplingHook), GetY(_HK1_myGrapplingHook)), 30)))
-	And (SetXDir (Sum (GetXDir(), Kosini2 (4))), SetYDir (Sum (GetYDir(), Sini2 (4))));
+	if (Distance(GetX(), GetY(), GetX(_HK1_myGrapplingHook), GetY(_HK1_myGrapplingHook)) >= 30) {
+		SetXDir(GetXDir() + Cos(AngleToHook(), 4));
+		SetYDir(GetYDir() + Sin(AngleToHook(), 4));
+	}
 
 	// If there is no rope, release
-	if(Not (_HK1_myGrapplingHook))
+	if (!(_HK1_myGrapplingHook)) {
 		return(Release());
-
-	// Done!
-	return(1);
+	}
 }
 
 protected func SwingRight() // Swing!
 {
 	// Turn the clonk
-	SetComDir (COMD_Right);
-
-	//   // Turn the crosshair
-	//   if (GreaterThan (SetVar (0, GetR (_CR1_myCrosshair)), 130))
-	//     SetR (Sum (0, Sub (180, Var (0))), _CR1_myCrosshair);
-	//   if (LessThan (Var (0), -90))
-	//     SetR (Sub (180, Var (0)), _CR1_myCrosshair);
+	SetComDir(COMD_Right);
 
 	// The hook pulls
-	SetXDir (Sum (GetXDir(), 2));
-	SetYDir (Sum (GetYDir(), 2));
-
-	// Done!
-	return(1);
+	SetXDir(GetXDir() + 2);
+	SetYDir(GetYDir() + 2);
 }
 
 protected func SwingLeft() // Swing!
@@ -522,21 +480,9 @@ protected func SwingLeft() // Swing!
 	// Turn the clonk
 	SetComDir(COMD_Left);
 
-	// shouldnt be necessary, we do this in the overridden setcomdir()
-// 	// Turn the crosshair
-// 	if (Inside (SetVar (0, GetR (_CR1_myCrosshair)), 1, 89))
-// 		SetR(Sum (180, Sub (Var (0), Mul (Var (0), 2))), _CR1_myCrosshair);
-// 	if (Inside (Var (0), -89, -1))
-// 	SetR (Sum (180, Sub (Var (0), Mul (Var (0), 2))), _CR1_myCrosshair);
-// 	if (Equal (Var (0), 0))
-// 	SetR (180, _CR1_myCrosshair);
-
 	// The hook pulls
-	SetXDir (Sub(GetXDir(), 2));
-	SetYDir (Sum(GetYDir(), 2));
-
-	// Done!
-	return(1);
+	SetXDir(GetXDir() - 2);
+	SetYDir(GetYDir() + 2);
 }
 
 protected func Release()  // Release the hook
@@ -567,7 +513,7 @@ protected func CatchBlow()  // Explode nearby
 	return(1);
 }
 
-protected func Hurt()  // Ai! Ei!
+protected func Hurt()
 {
 	// BloooD
 	CastObjects(_EB1, (8 * _AEW_myWreck->getBloodLevel()), 50);
@@ -576,12 +522,12 @@ protected func Hurt()  // Ai! Ei!
 
 protected func Grab()  // Grabs something
 {
-	Sound ("Grab");
+	Sound("Grab");
 }
 
 protected func Get()  // Gets something
 {
-	Sound ("Grab");
+	Sound("Grab");
 }
 
 protected func Put()  // Puts something smewhere
@@ -596,20 +542,17 @@ protected func Death(int iKilledBy){  // Deeaatth!
 	CastObjects(_EB1, (15 * _AEW_myWreck->getBloodLevel()), 50);
 
 	// Gibs
-	CastObjects (_PC1, 5, 35);
-	CastObjects (_PC2, 5, 25);
-	CastObjects (_PC3, 5, 30);
+	CastObjects(_PC1, 5, 35);
+	CastObjects(_PC2, 5, 25);
+	CastObjects(_PC3, 5, 30);
 
 	// Severed head
-	CastObjects (_PC4, 1, Sum (25, Random (10)));
+	CastObjects(_PC4, 1, 25 + Random(10));
 
 	// Remove the crosshair
 	RemoveObject(_CR1_myCrosshair);
 
-	// Aaarrrggghhh!
-	Sound ("Die");
-
-	// Death
+	Sound("Die");
 	RemoveObject();
 
 	// Check lives left
@@ -618,7 +561,7 @@ protected func Death(int iKilledBy){  // Deeaatth!
 	return(1);
 }
 
-protected  func StopShoot()  // Stop shooting sequence
+protected func StopShoot()  // Stop shooting sequence
 {
 	Contents()->StopShooting();
 	return(1);
@@ -627,10 +570,10 @@ protected  func StopShoot()  // Stop shooting sequence
 protected func DeepBreath()  // Air! Need air!
 {
 	// Sound
-	Sound ("Breath");
+	Sound("Breath");
 }
 
-private  func Incineration()  // Burn baby burn!
+private func Incineration()  // Burn baby burn!
 {
 	// Aaahhh
 	Extinguish();
@@ -641,52 +584,26 @@ private  func Incineration()  // Burn baby burn!
 
 	myFlame = CreateObject(_HFO);
 	myFlame->Start(this());
-	DoEnergy (-5);
+	DoEnergy(-5);
 	return(1);
-}
-
-/* Calculator */
-
-// omfg - the weapons call this Calculations just so they know where to fire.
-// TODO: direction (angle) should be parameter of [weapon]->shoot(). Weapons (hook included) should not have to call methods of their bearer! - this goes for: Kosini(), Kosini2(), Sini(), Sini2(), getAimAngle(), Angle2()
-
-public  func Kosini()  // Cosine, int Distance
-{
-  return(Cos (getAimAngle(), Par (0)));
-}
-
-public  func Kosini2()  // Cosine, int Distance
-{
-  return(Cos (Angle2(), Par (0)));
-}
-
-public  func Sini2()  // Sine, int Distance
-{
-  return(Sin (Angle2(), Par (0)));
-}
-
-public  func Sini()  // Sine, int Distance
-{
-  return(Sin (getAimAngle(), Par (0)));
 }
 
 public func getAimAngle()  // Crosshair's angle
 {
 	// Returns the angle of the crosshair
-	return(GetR (_CR1_myCrosshair));
+	return(GetR(_CR1_myCrosshair));
 }
 
-public func Angle2()  // Hook's angle
+public func AngleToHook()  // Hook's angle
 {
-
 	// Var 1 is the angle between the hook and this clonk
-	SetVar (1, Angle (GetX(), GetY(), GetX (_HK1_myGrapplingHook), GetY (_HK1_myGrapplingHook)));
+	var angle = Angle(GetX(), GetY(), GetX(_HK1_myGrapplingHook), GetY(_HK1_myGrapplingHook));
 
-	// Converts the var 1 to a number, that the "Kosini" can use
-	SetVar (1, Sub (Var (1), 90));
-	if (GreaterThan (Var (1), 180))
-		SetVar (1, Sub (Var (1), 360));
-
+	
+	angle = angle - 90; // for Angle(), 0 is upwards
+	if (angle > 180) { // < 180
+		angle = angle - 360;
+	}
 	// Done and return the final value
-	return(Var (1));
+	return(angle);
 }
