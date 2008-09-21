@@ -10,10 +10,7 @@ ResetWeapons=Waffen zurücksetzen
 
 have_all_weapons=Du hast bereits alle Waffen!
 something_is_bad=Irgendetwas läuft hier gehörig schief
-sry_lock_is_on=Ups, die Waffenauswahl ist gesperrt!
-sry_lock_is_on2=Ups, die Lebensanzahlsauswahl ist gesperrt!
-sry_lock_is_on3=Ups, die Lebensenergieeinstellung ist gesperrt!
-sry_lock_is_on4=Ups, die Nachladeschnelligkeitsoption ist gesperrt!
+sry_lock_is_on=Ups, die %s ist gesperrt!
 only_one_life=Du hast nur noch ein einziges Leben!
 livesleft=Du hast nur noch %d Leben!
 Aim_Style=Ziel-Modus ist %d| 1.. drehbar; 2.. Punkt zu Punkt
@@ -21,6 +18,15 @@ Blood_Level=Das Blutlevel ist jetzt %d
 lives_left_for_player=Spieler %d hat noch %d Leben
 voted_for=Ich bin dafür, das %s-Lock %zuschalten
 choose_weapon=Wähle Waffe Nummer %d!
+weapons_selection=Waffenauswahl
+health_options=Lebensanzahlsauswahl
+reload_options=Nachladeschnelligkeitsoption
+live_energy_options=Lebensenergieoption
+HealthLock=Lebensenergieoption 
+
+#//Sperrungsmenü
+Lock=Sperre die %s //Das klappt soweit ja ganz gut, nur wird für "%s" was Falsches eingesetzt.
+
 
 #//Lebensenergieeinstellungen
 Invincible=Unverwundbar
@@ -28,7 +34,7 @@ Very_tough=Sehr robust
 Tough=Zäh
 Hard=Hart im Nehmen
 Normal=Normal
-Not_good=Nichts taugend
+No_good=Nichts taugend
 Very_bad=Wirklich übel
 One_shot_one_kill=Ein Schuss, ein Toter
 

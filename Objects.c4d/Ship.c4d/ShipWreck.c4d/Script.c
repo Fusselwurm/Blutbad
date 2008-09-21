@@ -133,7 +133,7 @@ protected func ControlSpecial()
 private func Options()
 {
 	CreateMenu();
-	AddMenuItem("$Locks$", "LockMenu");
+	AddMenuItem("$Locks$", "LockMenu"); 
 	AddMenuItem("$AimingStyle$", "AimStyle");
 	AddMenuItem("$BloodLevel$", "BloodLevel");
 	AddMenuItem("$Lives$", "LivesLeft");
@@ -186,7 +186,7 @@ private func RemoveLooseWeap()
 protected func LockMenu()
 {
 	CreateMenu();
-	AddMenuItem("Health Settings Lock", "HealthLock");
+	AddMenuItem("$Lock$", "HealthLock");//warum zum Teufel kommt hier "Sperre ZERSTÖRTES FRACHTSCHIFF"?
 	AddMenuItem("Loading Times Lock", "LoadLock");
 	AddMenuItem("Weapons Lock", "WeapLock");
 	AddMenuItem("Lives Lock", "LivesLock");
@@ -282,7 +282,7 @@ protected func WeaponsMenu()
 {
 	if (CheckWeaponsLock())
 	{
-		return(Message("$sry_lock_is_on$"));
+		return(Message("$sry_lock_is_on$", this, "$weapons_selection$"));
 	}
 	playerWeapons = [];
 	SetWeapons(0);
@@ -319,7 +319,7 @@ protected func BloodLevel()
 protected func LivesLeft()
 {
 	if (CheckLivesLock())
-		return(Message("$sry_lock_is_on2$"));
+		return(Message("$sry_lock_is_on$", this, "$health_options$"));
 
 	CreateMenu();
 	AddMenuItem("Instant Game Over", "InstGmOvr", _KC1, 0, 0, 1);
@@ -361,7 +361,7 @@ protected func TheEnd()
 protected func Health()
 {
 	if (CheckHealthLock())
-		return(Message("$sry_lock_is_on3$"));
+		return(Message("$sry_lock_is_on$", this, "$live_energy_options$"));
 
 	CreateMenu();
 	AddMenuItem("$Invincible$", "SetHealth", _KC1, 0, 0, 2000000);
@@ -400,7 +400,7 @@ protected func SetHealth(oID, health) {
 
 protected func LoadTime() {
 	if (CheckLoadTimesLock())
-		return(Message("$sry_lock_is_on4$"));
+		return(Message("$sry_lock_is_on$", this, "$reload_options$"));
 	CreateMenu();
 	AddMenuItem("Very Slow", "SetLoadTime", 0, 0, 0, 33);
 	AddMenuItem("Slow", "SetLoadTime", 0, 0, 0, 66);
