@@ -322,7 +322,7 @@ protected func LivesLeft()
 		return(Message("$sry_lock_is_on$", this, "$health_options$"));
 
 	CreateMenu();
-	AddMenuItem("Instant Game Over", "InstGmOvr", _KC1, 0, 0, 1);
+	AddMenuItem("$Instant_Game_Over$", "InstGmOvr", _KC1, 0, 0, 1);
 	AddMenuItem("5", "SetLives", _KC1, 0, 0, 5);
 	AddMenuItem("10", "SetLives", _KC1, 0, 0, 10);
 	AddMenuItem("20", "SetLives", _KC1, 0, 0, 20);
@@ -402,28 +402,30 @@ protected func LoadTime() {
 	if (CheckLoadTimesLock())
 		return(Message("$sry_lock_is_on$", this, "$reload_options$"));
 	CreateMenu();
-	AddMenuItem("Very Slow", "SetLoadTime", 0, 0, 0, 33);
-	AddMenuItem("Slow", "SetLoadTime", 0, 0, 0, 66);
-	AddMenuItem("Normal", "SetLoadTime", 0, 0, 0, 100);
-	AddMenuItem("Fast", "SetLoadTime", 0, 0, 0, 150);
-	AddMenuItem("Very Fast", "SetLoadTime", 0, 0, 0, 200);
-	AddMenuItem("No Time At All!", "SetLoadTime", 0, 0, 0, 10000);
+	AddMenuItem("$Very_slow$", "SetLoadTime", 0, 0, 0, 33);
+	AddMenuItem("$Slow$", "SetLoadTime", 0, 0, 0, 66);
+	AddMenuItem("$Normal3$", "SetLoadTime", 0, 0, 0, 100);
+	AddMenuItem("$Fast$", "SetLoadTime", 0, 0, 0, 150);
+	AddMenuItem("$Very_fast$", "SetLoadTime", 0, 0, 0, 200);
+	AddMenuItem("$No_Time_At_All$", "SetLoadTime", 0, 0, 0, 10000);
 }
+
+//natürlich sehr unschön gelöst, ich gebs zu - funktioniert aber ;)
 
 protected func SetLoadTime(oID, percent) {
 	var msg;
 	if (percent < 34)
-		msg =  "Your loading time is very slow";
+		msg =  "$Very_slow$";
 	else if (percent < 100)
-		msg =  "Your loading time is slow";
+		msg =  "$Slow$";
 	else if (percent == 100)
-		msg =  "Your loading time is normal";
+		msg =  "$Normal3$";
 	else if (percent < 150)
-		msg =  "Your loading time is fast";
+		msg =  "$Fast$";
 	else if (percent < 500)
-		msg =  "Your loading time is very fast";
+		msg =  "$Very_fast$";
 	else
-		msg =  "Your loading time is barely noticeable";
+		msg =  "$Barely_noticeable$";
 	PlrMessage(msg, GetOwner(), this);
 	GetOptions()->setReloadMultiplier(percent);
 }

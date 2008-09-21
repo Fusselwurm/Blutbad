@@ -39,6 +39,8 @@ No_good=Nichts taugend
 Very_bad=Wirklich übel
 One_shot_one_kill=Ein Schuss, ein Toter
 
+Instant_Game_Over=Sofortiges Spielende
+
 #Meldungen
 Will_die=Du wirst sterben!
 Very_vulnerable=Du bist nun sehr verwundbar!
@@ -48,6 +50,16 @@ Hard2=Du bist nun wirklich hart im nehmen!
 Tough2=Du bist jetzt ziemlich zäh!
 Very_tough2=Du bist jetzt sehr robust!
 Invincible2=Du bist nun unverwundbar!
+
+#Nachladezeiten
+Very_slow=Nachladezeit: sehr langsam
+Slow=Nachladezeit: langsam
+Normal3=Nachladezeit: normal
+Fast=Nachladezeit: schnell!
+Very_fast=Nachladezeit: sehr schnell
+No_Time_At_All=Nachladezeit: nicht vorhanden
+Barely_noticeable=Nachladezeit: nicht vorhanden
+#natürlich sehr unschön gelöst, ich gebs zu - funktioniert aber ;)
 
 #Waffen
 NapalmThrower=Flammenwerfer

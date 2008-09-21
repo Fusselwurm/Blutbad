@@ -49,6 +49,17 @@ Tough2=You are now tough!
 Very_tough2=You are now very tough!
 Invincible2=Noo! He's invincible!
 
+Instant_Game_Over=Instant Game Over
+
+#//Loading Times:
+Very_slow=Your loading time is very slow!
+Slow=Your loading time is slow!
+Normal3=Your loading time is normal!
+Fast=Your loading time is fast!
+Very_fast=Your loading time is very fast!
+Barely_noticeable=Your loading time is barely noticeable!
+
+
 #//Weapons
 NapalmThrower=Napalm Thrower
 Spray=Bulletspray
