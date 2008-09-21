@@ -19,6 +19,15 @@ lives_left_for_player=Lives left for player %d is %d
 voted_for=I vote for %s  the %s lock
 choose_weapon=Choose weapon #%d!
 
+
+#//Lockmenu
+Lock=Lock %s 
+live_energy_options=Health-Energy-Options 
+reload_options=Reload Options
+weapon_selection=Weapon Selection
+health_options=Health Options
+
+
 #//Health Options
 Invicible=Invincible
 Very_tough=Very tough
@@ -29,6 +38,15 @@ No_good=No good
 Very_bad=Very bad
 One_shot_one_kill=One shot - one kill
 
+#//Messages
+Will_die=You will DIE!
+Very_vulnerable=You are now very vulnerable!
+Not_tough=You are not tough!
+Normal2=You are now normal!
+Hard2=You are now hard!
+Tough2=You are now tough!
+Very_tough2=You are now very tough!
+Invincible2=Noo! He's invincible!
 
 #//Weapons
 NapalmThrower=Napalm Thrower

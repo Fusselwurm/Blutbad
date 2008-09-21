@@ -18,15 +18,15 @@ Blood_Level=Das Blutlevel ist jetzt %d
 lives_left_for_player=Spieler %d hat noch %d Leben
 voted_for=Ich bin dafür, das %s-Lock %zuschalten
 choose_weapon=Wähle Waffe Nummer %d!
-weapons_selection=Waffenauswahl
+
+weapon_selection=Waffenauswahl
 health_options=Lebensanzahlsauswahl
 reload_options=Nachladeschnelligkeitsoption
 live_energy_options=Lebensenergieoption
-HealthLock=Lebensenergieoption 
+
 
 #//Sperrungsmenü
-Lock=Sperre die %s //Das klappt soweit ja ganz gut, nur wird für "%s" was Falsches eingesetzt.
-
+Lock= %s sperren
 
 #//Lebensenergieeinstellungen
 Invincible=Unverwundbar
@@ -37,6 +37,16 @@ Normal=Normal
 No_good=Nichts taugend
 Very_bad=Wirklich übel
 One_shot_one_kill=Ein Schuss, ein Toter
+
+#//Meldungen
+Will_die=Du wirst sterben!
+Very_vulnerable=Du bist nun sehr verwundbar!
+Not_tough=Du bist jetzt ziemlich schwach!
+Normal2=Du bist nun normal stark!
+Hard2=Du bist nun wirklich hart im nehmen!
+Tough2=Du bist jetzt ziemlich zäh!
+Very_tough2=Du bist jetzt sehr robust!
+Invincible2=Du bist nun unverwundbar!
 
 #//Waffen
 NapalmThrower=Flammenwerfer

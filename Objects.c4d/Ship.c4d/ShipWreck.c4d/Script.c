@@ -177,7 +177,7 @@ private func GetOptions() {
 private func RemoveLooseWeap()
 {
 	var weap = FindObjects(Find_Owner(GetOwner()), Find_NoContainer(), Find_Category(C4D_Object));
-	// alle frei rumliegenden Objekte(außer Waffen haben wir da nix) entfernen, die dem Spieler gehören
+	// alle frei rumliegenden Objekte (außer Waffen haben wir da nix) entfernen, die dem Spieler gehören
 	for(var i = 0; i < GetLength(weap); i++) {
 		RemoveObject(weap[i]);
 	}
@@ -186,10 +186,10 @@ private func RemoveLooseWeap()
 protected func LockMenu()
 {
 	CreateMenu();
-	AddMenuItem("$Lock$", "HealthLock");//warum zum Teufel kommt hier "Sperre ZERSTÖRTES FRACHTSCHIFF"?
-	AddMenuItem("Loading Times Lock", "LoadLock");
-	AddMenuItem("Weapons Lock", "WeapLock");
-	AddMenuItem("Lives Lock", "LivesLock");
+	AddMenuItem(Format("$Lock$", "$live_energy_options$"), "HealthLock");
+	AddMenuItem(Format("$Lock$", "$reload_options$"), "LoadLock");
+	AddMenuItem(Format("$Lock$", "$weapon_selection$"), "WeapLock");
+	AddMenuItem(Format("$Lock$", "$health_options$"), "LivesLock");
 }
 
 /**
@@ -282,7 +282,7 @@ protected func WeaponsMenu()
 {
 	if (CheckWeaponsLock())
 	{
-		return(Message("$sry_lock_is_on$", this, "$weapons_selection$"));
+		return(Message("$sry_lock_is_on$", this, "$weapon_selection$"));
 	}
 	playerWeapons = [];
 	SetWeapons(0);
@@ -377,21 +377,21 @@ protected func Health()
 protected func SetHealth(oID, health) {
 	var msg;
 	if (health < 20000)
-		msg = "You will DIE!";
+		msg = "$Will_die$";
 	else if (health < 40000)
-		msg = "You are now very vulnerable!";
+		msg = "$Very_vulnerable$";
 	else if (health < 60000)
-		msg = "You are not tough!";
+		msg = "$Not_tough$";
 	else if (health < 120000)
-		msg = "You are now normal!";
+		msg = "$Normal2$";
 	else if (health < 360000)
-		msg = "You are now hard!";
+		msg = "$Hard2$";
 	else if (health < 720000)
-		msg = "You are now tough!";
+		msg = "$Tough2$";
 	else if (health < 1440000)
-		msg = "You are now very tough!";
+		msg = "$Very_tough2$";
 	else
-		msg = "Noo! He's invincible!";
+		msg = "$Invincible2$";
 
 	clonkEnergy = health;
 	ChangePhysicalEnergy(_KC1_player, clonkEnergy);
