@@ -301,15 +301,9 @@ protected func ControlUp()  // Grappling hook or jump
 		return(1);
 	}
 
-	if ((action ==  "Jump") ||
-	    (action == "Jump1") ||
-	    (action == "Jump2") ||
-	    (action == "Jump3") ||
-	    (action == "Jump4") ||
-	    (action == "Jump5") ||
-	    (action == "Jump6") ||
-	    (action == "Jump7"))
+	if (WildcardMatch(action, "Jump*")) {
 		LaunchHook();
+	}
 
 	Jump();
 
@@ -323,15 +317,9 @@ protected func ControlDownDouble()  // Dig, dug, dug
 	// Not with these actions
 	var action = GetAction();
 
-	if ((action == "Jump") ||
-	      (action == "Jump1") ||
-	      (action == "Jump2") ||
-	      (action == "Jump3") ||
-	      (action == "Jump4") ||
-	      (action == "Jump5") ||
-	      (action == "Jump6") ||
-	      (action == "Jump7"))
+	if (WildcardMatch(action, "Jump*")) {
 		return(1);
+	}
 
 	if ((action == "ToHook") ||
 	     (action == "KneelDown") ||
