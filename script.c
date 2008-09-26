@@ -22,6 +22,17 @@ global func IndexOfArray(array haystack, needle) {
 	return(-1);
 }
 
+/**
+ * retrieves one player's options object
+ */
+global func GetOptions(int player) {
+	var lock = FindObjects(Find_ID(_LOC), Find_Owner(player));
+	if (GetLength(lock) > 0) {
+		return lock[0];
+	}
+	return false;
+}
+
 protected func Initialize()
 {
 	// create 30 stones, flints and bones at random places.

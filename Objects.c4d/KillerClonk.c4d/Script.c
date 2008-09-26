@@ -587,7 +587,7 @@ public func AngleToHook()  // Hook's angle
 	// Var 1 is the angle between the hook and this clonk
 	var angle = Angle(GetX(), GetY(), GetX(_HK1_myGrapplingHook), GetY(_HK1_myGrapplingHook));
 
-	
+
 	angle = angle - 90; // for Angle(), 0 is upwards
 	if (angle > 180) { // < 180
 		angle = angle - 360;

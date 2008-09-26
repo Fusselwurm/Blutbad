@@ -21,6 +21,7 @@ local lockLoadTimes;
 local lockWeapons;
 local lockLives;
 local reloadMultiplier; //modifier for weapons' load time. percentage.
+local bloodLevel;
 
 // TODO this  should be static
 private func asString(bool on) {
@@ -42,6 +43,7 @@ protected func Initialize() {
 	setLoadTimesLock(true);
 	setWeaponsLock(false); // default: that you can choose your weapons freely
 	setLivesLock(true);
+	bloodLevel = 2;
 	reloadMultiplier = 100; // normal value.
 }
 
@@ -114,4 +116,12 @@ public func setLivesLock(bool val) {
 			Message("Lives lock is now %s", 0, asString(val));
 		}
 	}
+}
+
+public func setBloodLevel(int val) {
+	bloodLevel = val;
+}
+
+public func getBloodLevel() {
+	return bloodLevel;
 }

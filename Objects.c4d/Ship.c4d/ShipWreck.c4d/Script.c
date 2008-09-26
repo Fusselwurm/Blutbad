@@ -16,7 +16,6 @@ local aimStyle; // 1... rotating, 2.. point-to-point
 local _KC1_player; // the single living clonk of the team
 local clonkEnergy; // "health"  -
 local lives; // lives left
-local bloodLevel;
 local playerWeapons; //array of Weapon IDs
 
 //-------------------------------
@@ -36,7 +35,6 @@ global func ChangePhysicalEnergy(object clonk, int newPhysicalEnergy) {
 protected func Initialize()
 {
 	aimStyle = 1;
-	bloodLevel = 1;
 	lives = 20;
 	clonkEnergy = 100000;
 	playerWeapons = []; // we use the length of this array to check if the player already has all the weapons he needs
@@ -99,7 +97,7 @@ protected func DeployPlayer()
 
 public func getBloodLevel()
 {
-	return(bloodLevel);
+	return(GetOptions(GetOwner())->getBloodLevel()); //TODO: replace references withrefs to opti^ons obj
 }
 
 /**
@@ -133,7 +131,7 @@ protected func ControlSpecial()
 private func Options()
 {
 	CreateMenu();
-	AddMenuItem("$Locks$", "LockMenu"); 
+	AddMenuItem("$Locks$", "LockMenu");
 	AddMenuItem("$AimingStyle$", "AimStyle");
 	AddMenuItem("$BloodLevel$", "BloodLevel");
 	AddMenuItem("$Lives$", "LivesLeft");
@@ -165,14 +163,6 @@ private func ResetWeap()
 	RemoveLooseWeap();
 }
 
-// get player's options object
-private func GetOptions() {
-	var lock = FindObjects(Find_ID(_LOC), Find_Owner(GetOwner()));
-	if (GetLength(lock) > 0) {
-		return lock[0];
-	}
-	return false;
-}
 
 private func RemoveLooseWeap()
 {
@@ -206,7 +196,7 @@ private func LockVote(string lockType, bool enable) {
 }
 
 protected func HealthLock() {
-	var options  = GetOptions();
+	var options  = GetOptions(GetOwner());
 	if (!options)  return(Log("$something_is_bad$ :("));
 
 	var lock = !options->getHealthLock();
@@ -215,7 +205,7 @@ protected func HealthLock() {
 }
 
 protected func LoadLock() {
-	var options  = GetOptions();
+	var options  = GetOptions(GetOwner());
 	if (!options)  return(Log("$something_is_bad$ :("));
 
 	var lock = !options->getLoadTimesLock();
@@ -224,7 +214,7 @@ protected func LoadLock() {
 }
 
 protected func WeapLock() {
-	var options  = GetOptions();
+	var options  = GetOptions(GetOwner());
 	if (!options)  return(Log("$something_is_bad$ :("));
 
 	var lock = !options->getWeaponsLock();
@@ -233,7 +223,7 @@ protected func WeapLock() {
 }
 
 protected func LivesLock() {
-	var options  = GetOptions();
+	var options  = GetOptions(GetOwner());
 	if (!options)  return(Log("$something_is_bad$ :("));
 
 	var lock = !options->getLivesLock();
@@ -309,10 +299,12 @@ private func setAimStyle(style)
 
 protected func BloodLevel()
 {
+	var bloodLevel = GetOptions(GetOwner())->getBloodLevel();
 	bloodLevel++;
 	if (bloodLevel > 10) {
 		bloodLevel = 0;
 	}
+	GetOptions(GetOwner())->setBloodLevel(bloodLevel);
 	Message("$Blood_Level$", this, bloodLevel);
 }
 
@@ -427,5 +419,5 @@ protected func SetLoadTime(oID, percent) {
 	else
 		msg =  "$Barely_noticeable$";
 	PlrMessage(msg, GetOwner(), this);
-	GetOptions()->setReloadMultiplier(percent);
+	GetOptions(GetOwner())->setReloadMultiplier(percent);
 }
