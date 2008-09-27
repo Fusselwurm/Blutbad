@@ -9,7 +9,6 @@
 	Options etc shall be stored in the _LOC object, but for now the wreck is okay, also
 	TODO: dont let it be a team member. this stinks. it even gets a name -.-
 	TODO: localization
-	FIXME:
 */
 
 local aimStyle; // 1... rotating, 2.. point-to-point
@@ -107,8 +106,11 @@ private func Teleport()
 {
 	var x = Random(LandscapeWidth());
 	var y = Random(LandscapeHeight());
+	var xOff = x - GetX();
+	var yOff = y - GetY();
 
-	if (GBackLiquid(x - 10, y - 10) || GBackLiquid(x -10, y + 10) || GBackLiquid(x + 10, y - 10) || GBackLiquid(x +10, y + 10)) {
+	if (GBackLiquid(xOff - 10, yOff - 10) || GBackLiquid(xOff -10, yOff + 10) || GBackLiquid(xOff + 10, yOff - 10) || GBackLiquid(xOff +10, yOff + 10)) {
+		Log("blub, schnell weg!");
 		return(Teleport());
 	}
 
@@ -140,7 +142,7 @@ private func Options()
 	AddMenuItem("$ChooseWeapons$", "WeaponsMenu");
 	if (_KC1_player == 0)
 		AddMenuItem("$DeployPlayer$", "DeployPlayer", _KC1);
-	AddMenuItem("$ResetWeapons$", "ResetWeap"); // we should not need this. TODO: test if there is a case when the player loses his weapons
+	AddMenuItem("$ResetWeapons$", "ResetWeap"); // we should not need this. TODO: player can lose his active weapon sometimes, when jumping or scaling and you press down twice. or so.
 }
 
 // remove player's weapons, and re-create them. this is not to alter the player's weapon options

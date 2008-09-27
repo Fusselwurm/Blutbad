@@ -8,3 +8,4 @@ MaxAirSpeed=25
 MaxSlide=10000
 WindDrift=30
 Extinguisher=1
+Corrosive=1

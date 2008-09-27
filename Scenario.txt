@@ -48,6 +48,7 @@ YearSpeed=20,10
 Rain=45,29
 Wind=1,100
 Lightning=42,20
+Volcano=10,10
 
 [Definitions]
 Definition1=Objects.c4d

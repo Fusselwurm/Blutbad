@@ -9,7 +9,7 @@ MaxSlide=10000
 WindDrift=30
 Incindiary=1
 TempConvStrength=12
-BelowTempConvert=50
+BelowTempConvert=10
 BelowTempConvertTo=Ashes
 Placement=10
 TextureOverlay=Liquid
@@ -17,3 +17,5 @@ TextureOverlay=Liquid
 PXSGfxSize=6
 PXSGfx=Lava
 PXSGfxRt=0,0,32,32,-16,-16
+
+

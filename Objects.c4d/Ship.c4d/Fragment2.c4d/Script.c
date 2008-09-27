@@ -1,12 +1,16 @@
-Initialize:
-  SetAction ("Smoke");
-  Incinerate ();
-  return (1);
+#strict 2
 
-Hit:
+//TODO: same script as with the other fragment --> merge objects!
+
+protected func Initialize() {
+	SetAction("Smoke");
+	Incinerate();
+}
+
+protected func Hit() {
   Sound("MetalHit*");
-  return(1);
+}
 
-Smoking:
-  Smoke (0, 0, Sum (20, Random (10)));
-  return (1);
+protected func Smoking() {
+	Smoke (0, 0, 20 + Random(10));
+}

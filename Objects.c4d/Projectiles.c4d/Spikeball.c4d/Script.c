@@ -1,17 +1,22 @@
-Check:
-  if (SetVar (1, FindObject (0, -10, -20, 20, 30, OCF_CrewMember ())))
-    Sting (Var (1));
-  if (GreaterThan (GetActTime (), 1200))
-    RemoveObject ();
-  return (1);
+#strict 2
 
-Launch:
-  SetAction ("Check");  
-  return (1);
+protected func Check() {
+	var clonk = FindObject(0, -10, -20, 20, 30, OCF_CrewMember);
+	if (clonk) {
+		Sting(clonk);
+	}
+	if (GetActTime() > 1200) {
+		RemoveObject();
+	}
+}
 
-Sting:
-  Punch (Par (0), Sum (6, Random (3)));
-  ObjectCall (Par (0), "Hurt");
-  CastObjects (_EB1, Mul (12, Local (2, Local (1, Par (0)))), 50);
-  RemoveObject ();
-  return (1);
+public func Launch() {
+	SetAction("Check");
+}
+
+private func Sting(object lifeform) {
+	Punch(lifeform, 6 + Random(3));
+	lifeform->Hurt();
+	CastObjects(_EB1, GetOptions(lifeform->GetOwner())->getBloodLevel() * 12, 50);
+	RemoveObject();
+}

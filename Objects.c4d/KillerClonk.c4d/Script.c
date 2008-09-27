@@ -50,7 +50,7 @@ protected func SetComDir(dir) {
 
 	if (setCrosshair) {
 
-		// if we change direction, we want the rotation direction of the crosshair to be changed, too - so e.g. rotating upwards doesnt not become downwards.
+		// if we change direction, we want the rotation direction of the crosshair to be changed, too - so e.g. rotating upwards doesnt  become downwards.
 		if (GetRDir(_CR1_myCrosshair) != 0) {
 			SetRDir(- GetRDir(_CR1_myCrosshair), _CR1_myCrosshair);
 		}
@@ -287,7 +287,6 @@ protected func ControlSpecial2() // Change weapon
 
 protected func ControlUp()  // Grappling hook or jump
 {
-
 	var action = GetAction();
 	// If already hangin', release!
 	if (action == "ToHook") {
@@ -306,7 +305,6 @@ protected func ControlUp()  // Grappling hook or jump
 	}
 
 	Jump();
-
 	return(1);
 }
 
@@ -440,7 +438,7 @@ public func Fly2Hook()  // The hook pulls the clonk
 
 protected func Hooking()
 {
-	// TODO: she hook should pull along the way the rope goes... not just in the hook's direction
+	// TODO: the hook should pull along the way the rope goes... not just in the hook's direction
   // The hook is pullin'
 	if (Distance(GetX(), GetY(), GetX(_HK1_myGrapplingHook), GetY(_HK1_myGrapplingHook)) >= 30) {
 		SetXDir(GetXDir() + Cos(AngleToHook(), 4));
