@@ -15,8 +15,9 @@ only_one_life=Du hast nur noch ein einziges Leben!
 livesleft=Du hast nur noch %d Leben!
 Aim_Style=Ziel-Modus ist %d| 1.. drehbar; 2.. Punkt zu Punkt
 Blood_Level=Das Blutlevel ist jetzt %d
+Blood_Level_Extreme=Ihr werdet in Blut ersaufen!
 lives_left_for_player=Spieler %d hat noch %d Leben
-voted_for=Ich bin für das %s der %s-Sperre 
+voted_for=Ich bin für das %s der %s-Sperre
 choose_weapon=Wähle Waffe Nummer %d!
 
 weapon_selection=Waffenauswahl

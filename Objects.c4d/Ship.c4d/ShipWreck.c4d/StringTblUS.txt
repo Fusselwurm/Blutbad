@@ -15,14 +15,15 @@ only_one_life=You have only one life left!
 livesleft=You have only %d lives left!
 Aim_Style=Aim style is %d| 1.. rotating; 2.. point to point
 Blood_Level=Blood level is now %d
+Blood_Level_Extreme=You will drown in blood!
 lives_left_for_player=Lives left for player %d is %d
 voted_for=I vote for %s the %s lock
 choose_weapon=Choose weapon #%d!
 
 
 #//Lockmenu
-Lock=Lock %s 
-live_energy_options=Health-Energy-Options 
+Lock=Lock %s
+live_energy_options=Health-Energy-Options
 reload_options=Reload Options
 weapon_selection=Weapon Selection
 health_options=Health Options

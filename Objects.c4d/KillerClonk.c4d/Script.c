@@ -527,7 +527,9 @@ protected func Put()  // Puts something smewhere
 protected func Death(int iKilledBy){  // Deeaatth!
 
 	// Blood spreads around according to the settings
-	CastObjects(_EB1, (15 * _AEW_myWreck->getBloodLevel()), 50);
+	CastObjects(_EB1, (15 * GetOptions(GetOwner())->getBloodLevel()), 50);
+
+
 
 	// Gibs
 	CastObjects(_PC1, 5, 35);

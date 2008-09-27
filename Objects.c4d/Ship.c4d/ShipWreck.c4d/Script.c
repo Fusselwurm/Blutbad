@@ -301,11 +301,18 @@ protected func BloodLevel()
 {
 	var bloodLevel = GetOptions(GetOwner())->getBloodLevel();
 	bloodLevel++;
-	if (bloodLevel > 10) {
+	if (bloodLevel > 11) {
 		bloodLevel = 0;
 	}
+	if (bloodLevel == 11) {
+		bloodLevel = 20;
+	}
 	GetOptions(GetOwner())->setBloodLevel(bloodLevel);
-	Message("$Blood_Level$", this, bloodLevel);
+	if (bloodLevel < 11) {
+		Message("$Blood_Level$", this, bloodLevel);
+	} else {
+		Message("$Blood_Level_Extreme$", this, bloodLevel);
+	}
 }
 
 protected func LivesLeft()
