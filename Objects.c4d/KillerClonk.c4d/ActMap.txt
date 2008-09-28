@@ -13,7 +13,6 @@ Delay=15
 Facet=0,0,16,20
 NextAction=Walk1
 InLiquidAction=Swim
-EndCall=WalkCheck
 
 [Action]
 Name=Walk2
@@ -24,7 +23,6 @@ Delay=15
 Facet=128,0,16,20
 NextAction=Walk2
 InLiquidAction=Swim
-EndCall=WalkCheck
 
 [Action]
 Name=Walk3
@@ -35,7 +33,7 @@ Delay=15
 Facet=128,40,16,20
 NextAction=Walk3
 InLiquidAction=Swim
-EndCall=WalkCheck
+
 
 [Action]
 Name=Walk4
@@ -46,7 +44,7 @@ Delay=15
 Facet=128,80,16,20
 NextAction=Walk4
 InLiquidAction=Swim
-EndCall=WalkCheck
+
 
 
 [Action]
@@ -58,7 +56,7 @@ Delay=15
 Facet=256,0,16,20
 NextAction=Walk5
 InLiquidAction=Swim
-EndCall=WalkCheck
+
 
 [Action]
 Name=Walk6
@@ -69,7 +67,7 @@ Delay=15
 Facet=256,40,16,20
 NextAction=Walk6
 InLiquidAction=Swim
-EndCall=WalkCheck
+
 
 [Action]
 Name=Walk7
@@ -80,7 +78,7 @@ Delay=15
 Facet=0,40,16,20
 NextAction=Walk7
 InLiquidAction=Swim
-EndCall=WalkCheck
+
 
 [Action]
 Name=Jump

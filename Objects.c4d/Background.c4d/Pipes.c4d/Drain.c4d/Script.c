@@ -1,38 +1,23 @@
 /* Abflussrohr */
+#strict 2
 
-Initialize:
-  SetAction ("Still");
-  return (1);
+protected func Initialize() {
+	SetAction ("Still");
+}
 
-Imu:
-  ExtractLiquid (0, -1);
-  ExtractLiquid (0, -2);
-  ExtractLiquid (0, 0);
-  ExtractLiquid (0, 1);
-  ExtractLiquid (0, 2);
-  ExtractLiquid (0, 1);
-  ExtractLiquid (0, 0);
-  ExtractLiquid (0, -1);
-  ExtractLiquid (0, -2);
-  ExtractLiquid (0, -1);
-  ExtractLiquid (0, 0);
-  ExtractLiquid (0, 1);
-  ExtractLiquid (0, 2);
-  ExtractLiquid (0, 1);
-  ExtractLiquid (0, -1);
-  ExtractLiquid (0, -2);
-  ExtractLiquid (0, -1);
-  ExtractLiquid (0, 0);
-  ExtractLiquid (0, 1);
-  ExtractLiquid (0, 2);
-  ExtractLiquid (0, 1);
-  ExtractLiquid (0, 0);
-  return (1);
+protected func Pump() {
+	var j;
+	for (var i = 0; i < 5; i++) {
+		for (j = -2; j <= 2; j++) {
+			ExtractLiquid (0, j);
+		}
+	}
+}
 
-Still:
-  SetAction ("Still");
-  return (1);
+public  func Still() {
+	SetAction ("Still");
+}
 
-NuuNuu:
-  SetAction ("Drain");
-  return (1);
+public func NuuNuu() {
+	SetAction ("Drain");
+}

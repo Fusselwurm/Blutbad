@@ -107,6 +107,9 @@ protected func Check()
 			InternalSetR(-91);
 		}
 	}
+	if (GetID(controllingObject) == _KC1) {
+		controllingObject->AimActionCheck();
+	}
 	return(1);
 }
 

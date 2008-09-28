@@ -11,5 +11,5 @@ Procedure=NONE
 Delay=1
 FacetBase=1
 NextAction=Drain
-StartCall=Imu
+StartCall=Pump
 Sound=Pumper

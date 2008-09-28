@@ -1,5 +1,4 @@
 #strict 2
-//#include CLNK
 
 //TODO: don't raise the delay, but increase walk animation length from 8 to 16 (like with the the normal clonk)
 /*-- TappajaClonk --*/
@@ -17,22 +16,16 @@ protected func Initialize()
 	aimStyle = 1;
 	isChangingDir = false;
 
-	// Weapon fully loaded
+	// load weapon
 	DoMagicEnergy(100);
 
-	// Created the crosshair
+	// crosshair
 	_CR1_myCrosshair = CreateObject(_CR1);
-
-	// The crosshair attached to the clonk
 	_CR1_myCrosshair->Attach(this);
 
-	// Walk!
+	// walk!
 	SetAction("Walk");
-
 	SetComDir(COMD_Left);
-
-	// Ready, Soldier!
-	return(1);
 }
 
 // a bit awful, but ive no mind to think at this ungodly hour
@@ -304,8 +297,12 @@ protected func ControlUp()  // Grappling hook or jump
 		LaunchHook();
 	}
 
-	Jump();
-	return(1);
+	if (WildcardMatch(action, "Walk*")) {
+		Jump();
+		return(1);
+	}
+	return(0); // it's important to return 0 at this point, so that default actions (swim up! scale up!) can happen
+
 }
 
 // Diggin'
@@ -331,7 +328,6 @@ protected func ControlDownDouble()  // Dig, dug, dug
 	     (action == "Scale"))
 		return(1);
 
-	// Diggin' action
 	SetAction("SpecDig");
 	return(1);
 }
@@ -371,16 +367,38 @@ private func AimAngleToActionParameter(angle) {
 
 }
 
+
+public func AimActionCheck() {
+	var action = GetAction();
+
+	if (WildcardMatch(action, "Jump*")) {
+		JumpCheck();
+	} else if (WildcardMatch(action, "Walk*")) {
+		WalkCheck();
+	}
+
+}
+
 protected func WalkCheck()  // C's position check while walking
 {
 	// Set action that fits in with the crosshair's position
-	SetAction(Format("Walk%d", AimAngleToActionParameter(getAimAngle())));
+	var curAct = GetAction();
+	var nextAct = Format("Walk%d", AimAngleToActionParameter(getAimAngle()));
+	var phase = GetPhase();
+	if (curAct != nextAct) {
+		SetAction(nextAct);
+		SetPhase(phase);
+	}
 }
 
 protected func JumpCheck()  // C's position check while jumping
 {
 	// Set action that fits in with the crosshair's position
-	SetAction(Format("Jump%d", AimAngleToActionParameter(getAimAngle())));
+	var curAct = GetAction();
+	var nextAct = Format("Jump%d", AimAngleToActionParameter(getAimAngle()));
+	if (curAct != nextAct) {
+		SetAction(nextAct);
+	}
 }
 
 /* Redefine */

@@ -20,7 +20,7 @@ public func Set() {
 public func Off() {
 	Message("Off", this);
 	SetAction("Off");
-	var drains = Find_ID(_BDR);
+	var drains = FindObjects(Find_ID(_BDR));
 	for (var i = 0; i < GetLength(drains); i++) {
 		drains[i]->Still();
 	}
@@ -30,7 +30,7 @@ public func On() {
 	SetAction("On");
 	Message("On", this);
 
-	var drains = Find_ID(_BDR);
+	var drains = FindObjects(Find_ID(_BDR));
 	for (var i = 0; i < GetLength(drains); i++) {
 		drains[i]->NuuNuu();
 	}
