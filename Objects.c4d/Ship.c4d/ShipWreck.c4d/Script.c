@@ -16,6 +16,7 @@ local _KC1_player; // the single living clonk of the team
 local clonkEnergy; // "health"  -
 local lives; // lives left
 local playerWeapons; //array of Weapon IDs
+local weaponMenuArray;
 
 //-------------------------------
 
@@ -38,6 +39,28 @@ protected func Initialize()
 	clonkEnergy = 100000;
 	playerWeapons = []; // we use the length of this array to check if the player already has all the weapons he needs
 	SetAction("Delay");
+	weaponMenuArray = [
+		[_WFS, "$NapalmThrower$", "Feuerregen..."],
+		[_WSP, "$Spray$", "Sprühzeugs..."],
+		[_WDD, "$DoomsdayRocket$", "Projektilsturm..."],
+		[_WBZ, "$AntiTankMissile$", "bumm..."],
+		[_WLP, "$Larpa$", "verstreut gefährliche Smarties..."],
+		[_WBL, "$Blaster$", "Blastet... äh..."],
+		[_WCN, "$Cannon$", "Kanone..."],
+		[_WHR, "$Hellrider$", "Apokalyptischer Reiter..."],
+		[_WMC, "$MolotovCoctail$", "Ein Molli, wie man ihn liebt...."],
+		[_WSG, "$Shotgun$", "ewiglange Info zur Waffe..."],
+		[_WSS, "$SuperShotgun$", "Sprühzeugs..."],
+		[_WMS, "$Mines$", "Der automatische Camper..."],
+		[_WEX, "$Explosives$", "Sprühzeugs..."],
+		[_WSB, "$Spikeballs$", "Sprühzeugs..."],
+		[_WCR, "$Crackler$", "Sprühzeugs..."],
+		[_WKR, "$Grenades$", "Sprühzeugs..."],
+		[_WDB, "$Spray$", "$DirtBall$..."],
+		[_WHG, "$HandGun$", "Sprühzeugs..."],
+		[_WUZ, "$Uzi$", "Für das Al-Clapone-Feeling..."]
+	];
+
 	return(1);
 }
 
@@ -233,7 +256,10 @@ protected func LivesLock() {
 	options->setLivesLock(lock);
 }
 
-private func SetWeapons(id weaponID) {
+/**
+ * first parameter is _H_M, second the id we want :)
+ */
+private func SetWeapons(blah, id weaponID) {
 
 	var number = GetLength(playerWeapons);
 
@@ -249,25 +275,10 @@ private func SetWeapons(id weaponID) {
 
 	Message("$choose_weapon$", this, number + 1);
 	CreateMenu();
-	AddMenuItem("$NapalmThrower$", "SetWeapons", _WFS);
-	AddMenuItem("$Spray$", "SetWeapons", _WSP);
-	AddMenuItem("$DoomsdayRocket$", "SetWeapons", _WDD);
-	AddMenuItem("$AntiTankMissile$", "SetWeapons", _WBZ);
-	AddMenuItem("$Larpa$", "SetWeapons", _WLP);
-	AddMenuItem("$Blaster$", "SetWeapons", _WBL);
-	AddMenuItem("$Cannon$", "SetWeapons", _WCN);
-	AddMenuItem("$Hellrider$", "SetWeapons", _WHR);
-	AddMenuItem("$MolotovCoctail$", "SetWeapons", _WMC);
-	AddMenuItem("$Shotgun$", "SetWeapons", _WSG);
-	AddMenuItem("$SuperShotgun$", "SetWeapons", _WSS);
-	AddMenuItem("$Mines$", "SetWeapons", _WMS);
-	AddMenuItem("$Explosives$", "SetWeapons", _WEX);
-	AddMenuItem("$Spikeballs$", "SetWeapons", _WSB);
-	AddMenuItem("$Crackler$", "SetWeapons", _WCR);
-	AddMenuItem("$Grenades$", "SetWeapons", _WKR);
-	AddMenuItem("$DirtBall$", "SetWeapons", _WDB);
-	AddMenuItem("$HandGun$", "SetWeapons", _WHG);
- 	AddMenuItem("$Uzi$", "SetWeapons", _WUZ);
+
+	for (var i = 0; i < GetLength(weaponMenuArray); i++) {
+		AddMenuItem(weaponMenuArray[i][1], "SetWeapons", _H_M, 0, 0, weaponMenuArray[i][0], weaponMenuArray[i][2], 2, i);
+	}
 }
 
 protected func WeaponsMenu()
