@@ -7,7 +7,7 @@ local salvoCount;
 //@override
 private func DoShoot(int direction) {
 
-	if (salvoCount > 4) {
+	if (salvoCount > 100) {
 		salvoCount = 0;
 		StopShooting();
 		return(0);

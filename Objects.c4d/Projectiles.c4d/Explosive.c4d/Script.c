@@ -1,5 +1,5 @@
 Time:
-  if (GreaterThan (GetActTime (), Sum (15, Random (4))))
+  if (GetActTime() > (65 + Random(4)))
     Xplode ();
   return (1);
 

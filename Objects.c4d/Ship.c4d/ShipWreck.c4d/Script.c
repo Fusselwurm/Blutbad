@@ -40,25 +40,25 @@ protected func Initialize()
 	playerWeapons = []; // we use the length of this array to check if the player already has all the weapons he needs
 	SetAction("Delay");
 	weaponMenuArray = [
-		[_WFS, "$NapalmThrower$", "Feuerregen..."],
-		[_WSP, "$Spray$", "SprÃ¼hzeugs..."],
+		[_WFS, "$NapalmThrower$", "großflächiger Feuerregen..."],
+		[_WSP, "$Spray$", "Miniatur-Projektilsturm..."],
 		[_WDD, "$DoomsdayRocket$", "Projektilsturm..."],
-		[_WBZ, "$AntiTankMissile$", "bumm..."],
-		[_WLP, "$Larpa$", "verstreut gefÃ¤hrliche Smarties..."],
-		[_WBL, "$Blaster$", "Blastet... Ã¤h..."],
-		[_WCN, "$Cannon$", "Kanone..."],
-		[_WHR, "$Hellrider$", "Apokalyptischer Reiter..."],
-		[_WMC, "$MolotovCoctail$", "Ein Molli, wie man ihn liebt...."],
-		[_WSG, "$Shotgun$", "ewiglange Info zur Waffe..."],
-		[_WSS, "$SuperShotgun$", "SprÃ¼hzeugs..."],
+		[_WBZ, "$AntiTankMissile$", "bumm...Riesige Explosion, aber lange Nachladezeit"],
+		[_WLP, "$Larpa$", "Dem Spiel Liero entlehnt. Das Projektil hinterlässt einen explosiven Regen. Sehr ekelhaft..."],
+		[_WBL, "$Blaster$", "verschießt Splittergranaten"],
+		[_WCN, "$Cannon$", "Verursacht Explosion, gefolgt von mehreren kleineren..."],
+		[_WHR, "$Hellrider$", "Apokalyptischer Reiter - einigen kleineren, schnellen Explosionen folgt eine große..."],
+		[_WMC, "$MolotovCoctail$", "Ein Molli, wie man ihn liebt - verursacht kurzzeitig Flächenbrand..."],
+		[_WSG, "$Shotgun$", "Eine Schrotflinte, wie man sie kennt..."],
+		[_WSS, "$SuperShotgun$", "Ähnlich wie Schrotflinte, aber mehr Projektile und dadurch erhöhte Nachladezeit..."],
 		[_WMS, "$Mines$", "Der automatische Camper..."],
-		[_WEX, "$Explosives$", "SprÃ¼hzeugs..."],
-		[_WSB, "$Spikeballs$", "SprÃ¼hzeugs..."],
-		[_WCR, "$Crackler$", "SprÃ¼hzeugs..."],
-		[_WKR, "$Grenades$", "SprÃ¼hzeugs..."],
-		[_WDB, "$Spray$", "$DirtBall$..."],
-		[_WHG, "$HandGun$", "SprÃ¼hzeugs..."],
-		[_WUZ, "$Uzi$", "FÃ¼r das Al-Clapone-Feeling..."]
+		[_WEX, "$Explosives$", "Sprengladungen, die zeitverzögert explodieren..."],
+		[_WSB, "$Spikeballs$", "Ähnlich wie Mine, explodieren nicht, schmerzen jedoch bei Berührung."],
+		[_WCR, "$Crackler$", "Sprühzeugs...Verschießt in alle Himmelsrichtungen..."],
+		[_WKR, "$Grenades$", "Splittergranate, explodiert leicht verzögert..."],
+		[_WDB, "$DirtBall$", "Verschießt Sand - nicht gefährlich, aber praktisch..."],
+		[_WHG, "$HandGun$", "stinknormale Handfeuerwaffe, wenige Projektile, sehr kurze Nachladezeit..."],
+		[_WUZ, "$Uzi$", "Für das Al-Calpone-Feeling - viele kleine geradlinige Projektile..."]
 	];
 
 	return(1);
@@ -192,7 +192,7 @@ private func ResetWeap()
 private func RemoveLooseWeap()
 {
 	var weap = FindObjects(Find_Owner(GetOwner()), Find_NoContainer(), Find_Category(C4D_Object));
-	// alle frei rumliegenden Objekte (auÃŸer Waffen haben wir da nix) entfernen, die dem Spieler gehÃ¶ren
+	// alle frei rumliegenden Objekte (außer Waffen haben wir da nix) entfernen, die dem Spieler gehören
 	for(var i = 0; i < GetLength(weap); i++) {
 		RemoveObject(weap[i]);
 	}
@@ -422,7 +422,7 @@ protected func LoadTime() {
 	AddMenuItem("$No_Time_At_All$", "SetLoadTime", 0, 0, 0, 10000);
 }
 
-//natÃ¼rlich sehr unschÃ¶n gelÃ¶st, ich gebs zu - funktioniert aber ;)
+//natürlich sehr unschön gelöst, ich gebs zu - funktioniert aber ;)
 
 protected func SetLoadTime(oID, percent) {
 	var msg;

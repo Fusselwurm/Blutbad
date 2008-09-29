@@ -8,7 +8,7 @@ public func Initialize() {
 	inherited();
 
 	energyNeeded = 25; // energy needed for one shot
-	reloadRate = 5;
+	reloadRate = 10;
 }
 
 //@override
