@@ -40,25 +40,25 @@ protected func Initialize()
 	playerWeapons = []; // we use the length of this array to check if the player already has all the weapons he needs
 	SetAction("Delay");
 	weaponMenuArray = [
-		[_WFS, "$NapalmThrower$", "$firefall$"],
-		[_WSP, "$Spray$", "$mini_bulletstorm$"],
-		[_WDD, "$DoomsdayRocket$", "$bulletstorm$"],
-		[_WBZ, "$AntiTankMissile$", "$giant_explosion$"],
-		[_WLP, "$Larpa$", "$explosive_rain$"],
-		[_WBL, "$Blaster$", "$frag_blast$"],
-		[_WCN, "$Cannon$", "$cannon_explosion$"],
-		[_WHR, "$Hellrider$", "$apocalyptic_horseman$"],
-		[_WMC, "$MolotovCoctail$", "$molotov$"],
-		[_WSG, "$Shotgun$", "$shotgun$"],
-		[_WSS, "$SuperShotgun$", "$similar_to_shotgun$"],
-		[_WMS, "$Mines$", "$camper$"],
-		[_WEX, "$Explosives$", "$explode_delayed$"],
-		[_WSB, "$Spikeballs$", "$hurt_when_touched$"],
-		[_WCR, "$Crackler$", "$spraying_stuff$"],
-		[_WKR, "$Grenades$", "$frag$"],
-		[_WDB, "$DirtBall$", "$shoots_sand$"],
-		[_WHG, "$HandGun$", "$typical_handgun$"],
-		[_WUZ, "$Uzi$", "$al_capone$"]
+		[_WFS, "$NapalmThrower$", "$Desc_NapalmThrower$"],
+		[_WSP, "$Spray$", "$Desc_Spray$"],
+		[_WDD, "$DoomsdayRocket$", "$Desc_DoomsdayRocket$"],
+		[_WBZ, "$AntiTankMissile$", "$Desc_AntiTank$"],
+		[_WLP, "$Larpa$", "$Desc_Larpa$"],
+		[_WBL, "$Blaster$", "$Desc_Blaster$"],
+		[_WCN, "$Cannon$", "$Desc_Cannon$"],
+		[_WHR, "$Hellrider$", "$Desc_Hellrider$"],
+		[_WMC, "$MolotovCoctail$", "$Desc_MolotovCoctail$"],
+		[_WSG, "$Shotgun$", "$Desc_Shotgun$"],
+		[_WSS, "$SuperShotgun$", "$Desc_SuperShotgun$"],
+		[_WMS, "$Mines$", "$Desc_Mines$"],
+		[_WEX, "$Explosives$", "$Desc_Explosives$"],
+		[_WSB, "$Spikeballs$", "$Desc_Spikeballs$"],
+		[_WCR, "$Crackler$", "$Desc_Crackler$"],
+		[_WKR, "$Grenades$", "$Desc_Grenades$"],
+		[_WDB, "$DirtBall$", "$Desc_DirtBall$"],
+		[_WHG, "$HandGun$", "$Desc_HandGun$"],
+		[_WUZ, "$Uzi$", "$Desc_Uzi$"]
 	];
 
 	return(1);
@@ -192,7 +192,7 @@ private func ResetWeap()
 private func RemoveLooseWeap()
 {
 	var weap = FindObjects(Find_Owner(GetOwner()), Find_NoContainer(), Find_Category(C4D_Object));
-	// alle frei rumliegenden Objekte (au√üer Waffen haben wir da nix) entfernen, die dem Spieler geh√∂ren
+	// alle frei rumliegenden Objekte (auﬂer Waffen haben wir da nix) entfernen, die dem Spieler gehˆren
 	for(var i = 0; i < GetLength(weap); i++) {
 		RemoveObject(weap[i]);
 	}
@@ -422,7 +422,7 @@ protected func LoadTime() {
 	AddMenuItem("$No_Time_At_All$", "SetLoadTime", 0, 0, 0, 10000);
 }
 
-//nat√ºrlich sehr unsch√∂n gel√∂st, ich gebs zu - funktioniert aber ;)
+//nat¸rlich sehr unschˆn gelˆst, ich gebs zu - funktioniert aber ;)
 
 protected func SetLoadTime(oID, percent) {
 	var msg;
