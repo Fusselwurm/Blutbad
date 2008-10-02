@@ -16,7 +16,9 @@ local _KC1_player; // the single living clonk of the team
 local clonkEnergy; // "health"  -
 local lives; // lives left
 local playerWeapons; //array of Weapon IDs
+
 local weaponMenuArray;
+local mainMenuArray;
 
 //-------------------------------
 
@@ -59,6 +61,17 @@ protected func Initialize()
 		[_WDB, "$DirtBall$", "$Desc_DirtBall$"],
 		[_WHG, "$HandGun$", "$Desc_HandGun$"],
 		[_WUZ, "$Uzi$", "$Desc_Uzi$"]
+	];
+
+	mainMenuArray = [
+		["$Locks$", "LockMenu"],
+		["$AimingStyle$", "AimStyle"],
+		["$BloodLevel$", "BloodLevel"],
+		["$Lives$", "LivesLeft"],
+		["$Health$", "Health"],
+		["$LoadingTimes$", "LoadTime"],
+		["$ChooseWeapons$", "WeaponsMenu"],
+		["$ResetWeapons$", "ResetWeap"] // we should not need this. TODO: player can lose his active weapon sometimes, when jumping or scaling and you press down twice. or so.
 	];
 
 	return(1);
@@ -153,19 +166,17 @@ protected func ControlSpecial()
 /**
  * Options Menu (Main Menu)
  */
-private func Options()
-{
+private func Options() {
+	var offset = 20;
 	CreateMenu();
-	AddMenuItem("$Locks$", "LockMenu");
-	AddMenuItem("$AimingStyle$", "AimStyle");
-	AddMenuItem("$BloodLevel$", "BloodLevel");
-	AddMenuItem("$Lives$", "LivesLeft");
-	AddMenuItem("$Health$", "Health");
-	AddMenuItem("$LoadingTimes$", "LoadTime");
-	AddMenuItem("$ChooseWeapons$", "WeaponsMenu");
+	for (var i = 0; i < GetLength(mainMenuArray); i++) {
+		AddMenuItem(mainMenuArray[i][0], mainMenuArray[i][1], _H_M, 0, 0, 0, "", 2, i + offset);
+	}
 	if (_KC1_player == 0)
 		AddMenuItem("$DeployPlayer$", "DeployPlayer", _KC1);
-	AddMenuItem("$ResetWeapons$", "ResetWeap"); // we should not need this. TODO: player can lose his active weapon sometimes, when jumping or scaling and you press down twice. or so.
+
+
+
 }
 
 // remove player's weapons, and re-create them. this is not to alter the player's weapon options
@@ -192,7 +203,7 @@ private func ResetWeap()
 private func RemoveLooseWeap()
 {
 	var weap = FindObjects(Find_Owner(GetOwner()), Find_NoContainer(), Find_Category(C4D_Object));
-	// alle frei rumliegenden Objekte (außer Waffen haben wir da nix) entfernen, die dem Spieler gehören
+	// alle frei rumliegenden Objekte (auï¿½er Waffen haben wir da nix) entfernen, die dem Spieler gehï¿½ren
 	for(var i = 0; i < GetLength(weap); i++) {
 		RemoveObject(weap[i]);
 	}
@@ -422,7 +433,7 @@ protected func LoadTime() {
 	AddMenuItem("$No_Time_At_All$", "SetLoadTime", 0, 0, 0, 10000);
 }
 
-//natürlich sehr unschön gelöst, ich gebs zu - funktioniert aber ;)
+//natï¿½rlich sehr unschï¿½n gelï¿½st, ich gebs zu - funktioniert aber ;)
 
 protected func SetLoadTime(oID, percent) {
 	var msg;
