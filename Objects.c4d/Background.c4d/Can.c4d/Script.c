@@ -1,13 +1,16 @@
-Hit:
-  Sound ("CanHit");
-  return (1);
+#strict 2
 
-Damage:
-  if (GreaterThan (GetDamage (), 500))
-    Wreck ();
-  return (1);
+ protected func Hit () {
+	Sound("CanHit");
+}
 
-Wreck:
-  CastObjects (SHRD, 2, 10);
-  RemoveObject ();
-  return (1);
+ protected func Damage () {
+	if (GetDamage() > 500) {
+		Wreck();
+	}
+}
+
+ private func Wreck () {
+	CastObjects(SHRD, 2, 10);
+	RemoveObject();
+}

@@ -1,12 +1,15 @@
-Time:
-  if (GetActTime() > (65 + Random(4)))
-    Xplode ();
-  return (1);
+#strict 2
 
-Launch:
-  SetAction ("Delay");
-  return (1);
+protected func Time () {
+	if (GetActTime() >(65 + Random(4))) {
+		Xplode();
+	}
+}
 
-Xplode:
-  Explode (Sum (12, Random (7)));
-  return (1);
+public func Launch () {
+	SetAction("Delay");
+}
+
+private func Xplode () {
+	Explode(12 + Random(7));
+}

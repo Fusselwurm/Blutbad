@@ -1,14 +1,18 @@
-Initialize:
-  SetAction ("Check4Clonk");
-  return (1);
+#strict 2
 
-Hit:
-  Explode (5);
-  return (1);
+protected func Initialize () {
+	SetAction("Check4Clonk");
+}
 
-Check:
-  if (FindObject (0, -5, -5, 10, 10, OCF_CrewMember ()))
-    return (And (ChangeDef (_EB1), Explode (5, CreateObject (ROCK))));
-  if (GreaterThan (GetActTime (), 150))
-    RemoveObject ();
-  return (1);
+protected func Hit() {
+	Explode(5);
+}
+
+protected func Check() {
+	if (FindObject(0, -5, -5, 10, 10, OCF_CrewMember)) {
+		ChangeDef(_EB1);
+		Explode(5, CreateObject(ROCK));
+	} else if (GetActTime() > 150) {
+		RemoveObject();
+	}
+}

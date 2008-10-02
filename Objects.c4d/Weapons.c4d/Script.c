@@ -1,19 +1,7 @@
 #strict 2
 
-//TODO: create an action "Shooting" for atomatic weapons... then our StopShoot function becomes sensible ^^
-//TODO: think of the players' global game option "loadingtime!" /me thinks we need a big evil scenario object here to store those  things.
+//TODO: create an action "Shooting" for automatic weapons... then our StopShoot function becomes sensible ^^
 //WISH: we could remember the user's former magic energy and give it back to him once he disarms.
-
-
-/*
-	bei den ollen waffen (blaster als bsp):
-	// local 1 - the clonk
-	// local 1 of local 1 - crewcarrier
-	// local 5 of local 1 of local 1 - loadingtime
-	// spielervariable loadingtime + 1, und solange 9 kleiner loadingtime
-	// ähm... okay... also hier wird magicenergy += 1 für jedes loadingtime... oder so ähnlich...	 argsl
-	lassenwas
-*/
 
 local user; // this may be, for example, a belligerent Clonk. Or anything else that can hold weapons >D
 local magicEnergyFactor;

@@ -1,11 +1,12 @@
-/*-- Funke --*/
+#strict 2
 
-protected Initialize:
-  SetAction("Sparkle");
-  Sound("Electrify");
-  return(1);
+protected func Initialize () {
+	SetAction("Sparkle");
+	Sound("Electrify");
+}
 
-private Process:
-  if (GreaterThan(GetActTime(),10)) return(RemoveObject());
-  return(1);
-
+private func Process () {
+	if (GetActTime() > 10) {
+		RemoveObject();
+	}
+}

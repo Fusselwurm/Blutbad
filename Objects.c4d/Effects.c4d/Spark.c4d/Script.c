@@ -1,8 +1,11 @@
+#strict 2
 
-Process:
-  if (GreaterThan(GetActTime(),20)) return(AssignRemoval());
-  return(1);
+protected func Process () {
+	if (GetActTime() > 20) {
+		return(AssignRemoval());
+	}
+}
 
-Completion:
-  SetAction("Sparkle");
-  return(1);
+protected func Completion () {
+	SetAction("Sparkle");
+}

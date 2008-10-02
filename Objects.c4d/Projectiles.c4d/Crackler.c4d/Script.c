@@ -1,19 +1,22 @@
-Crackle:
-  if (GreaterThan (GetActTime (), 100))
-    End ();
-  CastObjects (_SP2, 1, Sum (30, Random (10)));
-  return (1);
+#strict 2
 
-Launch:
-  SetAction ("Crackle");
-  return (1);
+public func Crackle () {
+	if (GetActTime() > 100) {
+		End();
+	}
+	CastObjects(_SP2, 1, 30 + Random(10));
+}
 
-End:
-  CastObjects (_SP2, 10, Sum (30, Random (10)));
-  Explode ();
-  return (1);
+public func Launch () {
+	SetAction("Crackle");
+}
 
-Hit:
-  SetXDir (Sum (-50, Random (100)));
-  SetYDir (Sum (-50, Random (100)));
-  return (1);
+private func End () {
+	CastObjects(_SP2, 10, 30 + Random(10));
+	Explode();
+}
+
+public func Hit () {
+	SetXDir(RandomX(-50, 50));
+	SetYDir(RandomX(-50, 50));
+}

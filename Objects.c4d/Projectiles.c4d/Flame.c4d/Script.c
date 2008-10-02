@@ -1,17 +1,26 @@
-BurnProcess:
-  DoCon (+3);
-  if (SetVar (1, FindObject (0, -5, -5, 10, 10, OCF_CrewMember ())))
-    And (RemoveObject (), And (DoEnergy (-5, Var (1)), CastObjects (DFLM, 2, 15)));
-  if (Random(4))
-    if (GreaterThan(GetActTime(),40)) return(AssignRemoval());
-  if (Not(OnFire())) return(AssignRemoval());
-  return(1);
+#strict 2
 
-Initialize:
-  Incinerate();
-  SetAction("Burn");
-  return(1);
+public func BurnProcess () {
+	DoCon(3);
+	var crew = FindObject(0, -5, -5, 10, 10, OCF_CrewMember);
+  	if (crew) {
+		RemoveObject();
+		DoEnergy(-5, crew);
+		CastObjects(DFLM, 2, 15);
+	}
+	if (Random(4) && (GetActTime() > 40))  {
+		return(AssignRemoval());
+	}
+  	if (!OnFire()) {
+  		return(AssignRemoval()); //WTF is das für ne Funktion? FIXME
+	}
+}
 
-Hit:
-  RemoveObject ();
-  return (1);
+protected func Initialize () {
+	Incinerate();
+	SetAction("Burn");
+}
+
+protected func Hit () {
+	RemoveObject();
+}

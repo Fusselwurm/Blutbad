@@ -1,15 +1,16 @@
-FlyProcess:
-  if (Stuck ())
-    return (Xplode ());
-  if (GreaterThan (GetActTime (), Sum (30, Random (10))))
-    Xplode ();
-  return (1);
+#strict 2
 
-Xplode:
-  Explode (Sum (20, Random (10)));
-  CastObjects (_SP2, Sum (30, Random (10)), Sum (50, Random (20)));
-  return (1);
+public func FlyProcess () {
+	if (Stuck() || (GetActTime() > (30 + Random(10)))) {
+		Xplode();
+	}
+}
 
-Launch:
-  SetAction ("Fly");
-  return (1);
+public func Xplode () {
+	Explode(20 + Random(10));
+	CastObjects(_SP2, 30 + Random(10), 50 + Random(20));
+}
+
+public func Launch () {
+	SetAction("Fly");
+}

@@ -1,5 +1,6 @@
+#strict 2
 
-Hit:
-  Sound("Crystal*");
-  RemoveObject();
-  return(1);
+protected func Hit () {
+	Sound("Crystal*");
+	RemoveObject();
+}

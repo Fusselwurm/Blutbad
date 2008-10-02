@@ -1,7 +1,9 @@
-Initialize:
-  SetAction ("Exist");  
-  return (1);
+#strict 2
 
-Remove:
-  RemoveObject ();
-  return (1);
+ protected func Initialize () {
+	SetAction("Exist");
+}
+
+ protected func Remove () {
+	RemoveObject();
+}

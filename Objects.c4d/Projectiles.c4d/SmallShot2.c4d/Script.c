@@ -1,8 +1,11 @@
-Hit:
-  Explode (Sum (6, Random (4)));
-  return (1);
+#strict 2
 
-Check:
-  if (GreaterThan (GetActTime (), 500))
-    Hit ();
-  return (1);
+public func Hit () {
+	Explode(6 + Random(4));
+}
+
+protected func Check () {
+	if (GetActTime() > 500) {
+		Hit();
+	}
+}

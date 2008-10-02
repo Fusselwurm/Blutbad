@@ -1,3 +1,5 @@
+#strict 2
+
 /* The helper flame object */
 
 /*
@@ -6,30 +8,34 @@ This object attaches to the clonk and burns him
 
 */
 
-Initialize:
-  Incinerate ();
-  return (1);
+local victim;
 
-Start:
-  Sound ("Scream");
-  SetLocal (1, Par (0));
-  SetAction ("Palaminen", Local (1));
-  return (1);
+protected func Initialize () {
+	Incinerate();
+}
 
-Burning:
-  if (GreaterThan (GetActTime (), Sum (60, Random (10))))
-    return (End ());
-  DoEnergy (-1, Local (1));
-  Sound ("Hurt*");
-  return (1);
+ public func Start (object clonk) {
+	Sound("Scream");
+	victim = clonk;
+	SetAction("Palaminen", victim); //FIXME
+}
 
-TimerCall:
-  if (Not (GetActionTarget ()))
-    RemoveObject ();
-  if (Not (OnFire ()))
-    return (End ());
-  return (1);
+ protected func Burning () {
+	if (GetActTime() > (60 + Random(10)))
+		return(End());
+	DoEnergy(-1, victim);
+	Sound("Hurt*");
+}
 
-End:
-  RemoveObject ();
-  return (1);
+protected func TimerCall () {
+	if (!GetActionTarget()) {
+		RemoveObject();
+	}
+	if (!OnFire()) {
+		End();
+	}
+}
+
+protected func End () {
+	RemoveObject();
+}
