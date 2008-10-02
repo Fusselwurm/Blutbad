@@ -1,3 +1,3 @@
-DE:Napalmwerfer
+DE:Flammenwerfer
 US:Napalmthrower
 FI:Napalminheitin
