@@ -22,22 +22,40 @@ public func Attach(pObject)
 	return (1);
 }
 
-public func RotateUpRight()
+public func RotateUp() {
+	var dir = InternalGetDir();
+	if (dir == COMD_Right) {
+		RotateUpRight();
+	} else if (dir == COMD_Left) {
+		RotateUpLeft();
+	}
+}
+
+public func RotateDown() {
+	var dir = InternalGetDir();
+	if (dir == COMD_Right) {
+		RotateDownRight();
+	} else if (dir == COMD_Left) {
+		RotateDownLeft();
+	}
+}
+
+private func RotateUpRight()
 {
 	SetRDir(-rotationSpeed);
 }
 
-public func RotateDownRight()
+private func RotateDownRight()
 {
 	SetRDir(rotationSpeed);
 }
 
-public func RotateUpLeft()
+private func RotateUpLeft()
 {
 	SetRDir(rotationSpeed);
 }
 
-public func RotateDownLeft()
+private func RotateDownLeft()
 {
 	SetRDir(-rotationSpeed);
 }
@@ -59,7 +77,6 @@ public func switchDirection(dir) {
 		if (r < -180) {
 			r = r + 360;
 		}
-		//Log(Format("switchDirection - SetR: %d", r));
 		InternalSetR(r);
 	}
 }
@@ -70,39 +87,31 @@ protected func Check()
 		return(0);
 
 	var r = GetR();
-	var dir = controllingObject->getDirSecure();
+	var dir = InternalGetDir();
 
 	if (dir == COMD_Right) {
 		if (r == -90) {
-			//Log(Format("1Check - SetR: %d", r));
 			StopRotating();
 			InternalSetR(-89);
 		} else if (r < -90) { // check if crosshair goes over the  top
-			//Log(Format("2Check - SetR: %d", r));
 			StopRotating();
 			switchDirection(COMD_Right);
 		} else if ((r > 45) && (r <= 90)) { // crosshair's going too far down
-			//Log(Format("3Check - SetR: %d", r));
 			StopRotating();
 			InternalSetR(44);
 		} else if (r > 90) { //crosshair is somehow *on the wrong side*
-			//Log(Format("4Check - SetR: %d", r));
 			switchDirection(COMD_Right);
 		}
 	} else if (dir == COMD_Left) {
 		if ((r < 136) && (r >= 90)) { // crosshair's going too far down
-			//Log(Format("5Check - SetR: %d", r));
 			StopRotating();
 			InternalSetR(136);
-		} else if ((r < 90) && (r > 0)) { //crosshair is somehow *on the wrong side*
-			//Log(Format("6Check - SetR: %d", r));
+		} else if ((r < 90) && (r >= 0)) { //crosshair is somehow *on the wrong side*
 			switchDirection(COMD_Left);
 		} else if ((r > -89) && (r < 0)) { // check if crosshair goes over the  top
-			//Log(Format("7Check - SetR: %d", r));
 			StopRotating();
 			switchDirection(COMD_Left);
 		} else if (r == -90) { // check if crosshair goes over the  top
-			//Log(Format("8Check - SetR: %d", r));
 			StopRotating();
 			InternalSetR(-91);
 		}
@@ -114,7 +123,7 @@ protected func Check()
 }
 
 public func PntToPntUp() {
-	var dir = controllingObject->getDirSecure();
+	var dir = InternalGetDir();
 	if (dir == COMD_Right) {
 		return(SetUpRight());
 	}
@@ -125,7 +134,7 @@ public func PntToPntUp() {
 
 public func PntToPntDown() {
 
-	var dir = controllingObject->getDirSecure();
+	var dir = InternalGetDir();
 	if (dir == COMD_Right) {
 		return(SetDownRight());
 	}
@@ -136,7 +145,7 @@ public func PntToPntDown() {
 
 private func SetUpRight() {
 	var r = GetR();
-	var i = IndexOfArray(directionsRight, r);
+	var i = ArrayIndexOf(directionsRight, r);
 	if (i >= (GetLength(directionsRight) - 1))
 		return;
 
@@ -150,7 +159,7 @@ private func SetUpRight() {
 
 private func SetDownRight() {
 	var r = GetR();
-	var i = IndexOfArray(directionsRight, r);
+	var i = ArrayIndexOf(directionsRight, r);
 	if (i == 0)
 		return;
 
@@ -165,7 +174,7 @@ private func SetDownRight() {
 
 private func SetUpLeft() {
 	var r = GetR();
-	var i = IndexOfArray(directionsLeft, r);
+	var i = ArrayIndexOf(directionsLeft, r);
 	if (i >= (GetLength(directionsLeft) - 1))
 		return;
 
@@ -179,7 +188,7 @@ private func SetUpLeft() {
 
 private func SetDownLeft() {
 	var r = GetR();
-	var i = IndexOfArray(directionsLeft, r);
+	var i = ArrayIndexOf(directionsLeft, r);
 	if (i == 0)
 		return;
 
@@ -195,6 +204,22 @@ private func SetDownLeft() {
  * so that I can write a debug message before InternalSetR() occurs ;)
  */
 private func InternalSetR(r) {
-	//Log(Format("SetR: %d", r));
 	SetR(r);
+}
+
+/**
+ * returns the direction the crosshair should face - this is not necessarily the same as the clonk's
+ */
+private func InternalGetDir() {
+ 	var dir = controllingObject->getDirSecure();
+// 	if (ArrayIndexOf([COMD_Right, COMD_Left], dir) == -1) {
+// 		Log(Format("Direction %d", dir));
+// 	}
+	// the clonk's direction is not always the crosshair's - while scaling, for example, we want to shoot away from the wall
+	var action = GetAction(controllingObject);
+	if (WildcardMatch(action, "Scale*")) {
+		if (dir == COMD_Right) dir = COMD_Left;
+		else if (dir == COMD_Left) dir = COMD_Right;
+	}
+	return dir;
 }

@@ -117,11 +117,7 @@ protected func ControlThrowSingle()  // Crosshair up!
 		return(1);
 	}
 
-	if (getDirSecure() == COMD_Right)
-		_CR1_myCrosshair->RotateUpRight();
-	else if (getDirSecure() == COMD_Left)
-		_CR1_myCrosshair->RotateUpLeft();
-
+	_CR1_myCrosshair->RotateUp();
 	return(1);
 }
 
@@ -172,12 +168,7 @@ protected func ControlDigSingle()  // C down
 		return(1);
 	}
 
-	// Rotate down (right)
-	if (getDirSecure() == COMD_Right)
-		_CR1_myCrosshair->RotateDownRight();
-	else if (getDirSecure() == COMD_Left)
-		_CR1_myCrosshair->RotateDownLeft();
-
+	_CR1_myCrosshair->RotateDown();
 	return(1);
 	// we have to not return false, else the Clonk will complain about "kann nicht graben"
 }
@@ -211,7 +202,7 @@ protected func ControlLeft()  // Left
 	    (action == "SpecDig") ||
 	    (action == "Push") ||
 	    (action == "Dead") ||
-	    (action == "Scale"))
+	    WildcardMatch(action, "Scale*"))
 		return(0);
 
 	// Left  turn!
@@ -236,7 +227,7 @@ protected func ControlRight() // Right
 	    (action == "SpecDig") ||
 	    (action == "Push") ||
 	    (action == "Dead") ||
-	    (action == "Scale"))
+	    WildcardMatch(action, "Scale*"))
 		return(0);
 
 	// Right turn!
@@ -325,7 +316,7 @@ protected func ControlDownDouble()  // Dig, dug, dug
 	     (action == "Push") ||
 	     (action == "Swim") ||
 	     (action == "Dead") ||
-	     (action == "Scale"))
+	     WildcardMatch(action, "Scale*"))
 		return(1);
 
 	SetAction("SpecDig");

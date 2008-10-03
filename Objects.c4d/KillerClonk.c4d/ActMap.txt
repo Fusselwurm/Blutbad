@@ -34,7 +34,6 @@ Facet=128,40,16,20
 NextAction=Walk3
 InLiquidAction=Swim
 
-
 [Action]
 Name=Walk4
 Procedure=WALK
@@ -45,8 +44,6 @@ Facet=128,80,16,20
 NextAction=Walk4
 InLiquidAction=Swim
 
-
-
 [Action]
 Name=Walk5
 Procedure=WALK
@@ -56,7 +53,6 @@ Delay=15
 Facet=256,0,16,20
 NextAction=Walk5
 InLiquidAction=Swim
-
 
 [Action]
 Name=Walk6
@@ -78,7 +74,6 @@ Delay=15
 Facet=0,40,16,20
 NextAction=Walk7
 InLiquidAction=Swim
-
 
 [Action]
 Name=Jump
@@ -230,6 +225,15 @@ Length=8
 Delay=30
 Facet=0,80,16,20
 NextAction=Scale
+
+[Action]
+Name=ScaleDown
+Procedure=SCALE
+Directions=2
+Length=8
+Delay=30
+Facet=0,80,16,20
+NextAction=ScaleDown
 
 [Action]
 Name=ToHook

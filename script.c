@@ -12,7 +12,7 @@ The player's options are stored either in the Sipwrek or in their "lock" or "opt
  * @param haystack Array in which to search
  * @param needle the thing which is searched for...
  */
-global func IndexOfArray(array haystack, needle) {
+global func ArrayIndexOf(array haystack, needle) {
 	var len = GetLength(haystack);
 	for (var i = 0; i < len; i++) {
 		if (haystack[i] == needle) {
