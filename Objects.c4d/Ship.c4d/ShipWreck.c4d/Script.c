@@ -19,6 +19,7 @@ local playerWeapons; //array of Weapon IDs
 
 local weaponMenuArray;
 local mainMenuArray;
+local lockMenuArray;
 
 //-------------------------------
 
@@ -64,14 +65,21 @@ protected func Initialize()
 	];
 
 	mainMenuArray = [
-		["$Locks$", "LockMenu"],
-		["$AimingStyle$", "AimStyle"],
-		["$BloodLevel$", "BloodLevel"],
-		["$Lives$", "LivesLeft"],
-		["$Health$", "Health"],
-		["$LoadingTimes$", "LoadTime"],
-		["$ChooseWeapons$", "WeaponsMenu"],
-		["$ResetWeapons$", "ResetWeap"] // we should not need this. TODO: player can lose his active weapon sometimes, when jumping or scaling and you press down twice. or so.
+		["$Locks$", "LockMenu", "Sperren für verschiedene Optionen..."],
+		["$AimingStyle$", "AimStyle", ""],
+		["$BloodLevel$", "BloodLevel", "Wieviel Blut soll fließen?"],
+		["$Lives$", "LivesLeft", ""],
+		["$Health$", "Health", ""],
+		["$LoadingTimes$", "LoadTime", "Nachladezeiten der Waffen"],
+		["$ChooseWeapons$", "WeaponsMenu", "Wählen Sie Ihre Waffen..."],
+		["$ResetWeapons$", "ResetWeap", "Dem Clonk alle verlorenen Waffen zurückgeben. Ja, da gibt es einen Bug -.-"] // we should not need this. TODO: player can lose his active weapon sometimes, when jumping or scaling and you press down twice. or so.
+	];
+
+	lockMenuArray = [
+		[Format("$Lock$", "$live_energy_options$"), "HealthLock", ""],
+		[Format("$Lock$", "$reload_options$"), "LoadLock", ""],
+		[Format("$Lock$", "$weapon_selection$"), "WeapLock", ""],
+		[Format("$Lock$", "$health_options$"), "LivesLock", ""]
 	];
 
 	return(1);
@@ -146,7 +154,6 @@ private func Teleport()
 	var yOff = y - GetY();
 
 	if (GBackLiquid(xOff - 10, yOff - 10) || GBackLiquid(xOff -10, yOff + 10) || GBackLiquid(xOff + 10, yOff - 10) || GBackLiquid(xOff +10, yOff + 10)) {
-		Log("blub, schnell weg!");
 		return(Teleport());
 	}
 
@@ -167,10 +174,9 @@ protected func ControlSpecial()
  * Options Menu (Main Menu)
  */
 private func Options() {
-	var offset = 20;
 	CreateMenu();
 	for (var i = 0; i < GetLength(mainMenuArray); i++) {
-		AddMenuItem(mainMenuArray[i][0], mainMenuArray[i][1], _H_M, 0, 0, 0, "", 2, i + offset);
+		AddMenuItem(mainMenuArray[i][0], mainMenuArray[i][1], _H_M, 0, 0, 0,mainMenuArray[i][2], 2, i + 20/*offset*/);
 	}
 	if (_KC1_player == 0)
 		AddMenuItem("$DeployPlayer$", "DeployPlayer", _KC1);
@@ -212,10 +218,9 @@ private func RemoveLooseWeap()
 protected func LockMenu()
 {
 	CreateMenu();
-	AddMenuItem(Format("$Lock$", "$live_energy_options$"), "HealthLock");
-	AddMenuItem(Format("$Lock$", "$reload_options$"), "LoadLock");
-	AddMenuItem(Format("$Lock$", "$weapon_selection$"), "WeapLock");
-	AddMenuItem(Format("$Lock$", "$health_options$"), "LivesLock");
+	for (var i = 0; i < GetLength(lockMenuArray); i++) {
+		AddMenuItem(lockMenuArray[i][0], lockMenuArray[i][1], _H_M, 0, 0, 0, lockMenuArray[i][2], 2, i + 30/*offset*/);
+	}
 }
 
 /**
