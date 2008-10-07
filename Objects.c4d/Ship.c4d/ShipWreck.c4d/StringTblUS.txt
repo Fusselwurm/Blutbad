@@ -23,7 +23,7 @@ choose_weapon=Choose weapon #%d!
 
 #//Lockmenu
 Lock=Lock %s
-live_energy_options=Health-Energy-Options
+live_energy_options=live energy options
 reload_options=Reload Options
 weapon_selection=Weapon Selection
 health_options=Health Options
@@ -50,7 +50,7 @@ Tough2=You are now tough!
 Very_tough2=You are now very tough!
 Invincible2=Noo! He's invincible!
 
-Instant_Game_Over=Instant Game Over
+Instant_game_over=Instant game over
 
 #Loading Times
 Very_slow=Your loading time is very slow!
@@ -61,15 +61,14 @@ Very_fast=Your loading time is very fast!
 Barely_noticeable=Your loading time is barely noticeable!
 
 #Main Menu
-#Übersetzung steht noch aus.
-Main_lock=
-Main_aim=
-Main_blood=
-Main_lives=
-Main_health=
-Main_load=
-Main_weapons=
-Main_reset=
+Main_lock=To lock or unlock various options...
+Main_aim=Change aim mode...
+Main_blood=How much blood shall flow?
+Main_lives=Set live-count...
+Main_health=Adjust live energy options...
+Main_load=Change reload time...
+Main_weapons=Choose your weapons!
+Main_reset=Give back all lost weapons to the Clonk... Yes, there is a bug. -.-
 
 #Weapons
 NapalmThrower=Napalm Thrower

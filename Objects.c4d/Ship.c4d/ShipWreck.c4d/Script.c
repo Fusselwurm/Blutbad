@@ -350,7 +350,7 @@ protected func LivesLeft()
 		return(Message("$sry_lock_is_on$", this, "$health_options$"));
 
 	CreateMenu();
-	AddMenuItem("$Instant_Game_Over$", "InstGmOvr", _KC1, 0, 0, 1);
+	AddMenuItem("$Instant_game_over$", "InstGmOvr", _KC1, 0, 0, 1);
 	AddMenuItem("5", "SetLives", _KC1, 0, 0, 5);
 	AddMenuItem("10", "SetLives", _KC1, 0, 0, 10);
 	AddMenuItem("20", "SetLives", _KC1, 0, 0, 20);
