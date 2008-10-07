@@ -60,6 +60,16 @@ Fast=Your loading time is fast!
 Very_fast=Your loading time is very fast!
 Barely_noticeable=Your loading time is barely noticeable!
 
+#Main Menu
+#Übersetzung steht noch aus.
+Main_lock=
+Main_aim=
+Main_blood=
+Main_lives=
+Main_health=
+Main_load=
+Main_weapons=
+Main_reset=
 
 #Weapons
 NapalmThrower=Napalm Thrower

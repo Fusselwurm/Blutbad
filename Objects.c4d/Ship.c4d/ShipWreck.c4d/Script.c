@@ -65,14 +65,14 @@ protected func Initialize()
 	];
 
 	mainMenuArray = [
-		["$Locks$", "LockMenu", "Sperren für verschiedene Optionen..."],
-		["$AimingStyle$", "AimStyle", ""],
-		["$BloodLevel$", "BloodLevel", "Wieviel Blut soll fließen?"],
-		["$Lives$", "LivesLeft", ""],
-		["$Health$", "Health", ""],
-		["$LoadingTimes$", "LoadTime", "Nachladezeiten der Waffen"],
-		["$ChooseWeapons$", "WeaponsMenu", "Wählen Sie Ihre Waffen..."],
-		["$ResetWeapons$", "ResetWeap", "Dem Clonk alle verlorenen Waffen zurückgeben. Ja, da gibt es einen Bug -.-"] // we should not need this. TODO: player can lose his active weapon sometimes, when jumping or scaling and you press down twice. or so.
+		["$Locks$", "LockMenu", "$Main_lock$"],
+		["$AimingStyle$", "AimStyle", "$Main_aim$"],
+		["$BloodLevel$", "BloodLevel", "$Main_blood$"],
+		["$Lives$", "LivesLeft", "$Main_lives$"],
+		["$Health$", "Health", "$Main_health$"],
+		["$LoadingTimes$", "LoadTime", "$Main_load$"],
+		["$ChooseWeapons$", "WeaponsMenu", "$Main_weapons$"],
+		["$ResetWeapons$", "ResetWeap", "$Main_reset$"] // we should not need this. TODO: player can lose his active weapon sometimes, when jumping or scaling and you press down twice. or so.
 	];
 
 	lockMenuArray = [
@@ -209,7 +209,7 @@ private func ResetWeap()
 private func RemoveLooseWeap()
 {
 	var weap = FindObjects(Find_Owner(GetOwner()), Find_NoContainer(), Find_Category(C4D_Object));
-	// alle frei rumliegenden Objekte (au�er Waffen haben wir da nix) entfernen, die dem Spieler geh�ren
+	// alle frei rumliegenden Objekte (au?er Waffen haben wir da nix) entfernen, die dem Spieler geh?ren
 	for(var i = 0; i < GetLength(weap); i++) {
 		RemoveObject(weap[i]);
 	}
@@ -438,7 +438,7 @@ protected func LoadTime() {
 	AddMenuItem("$No_Time_At_All$", "SetLoadTime", 0, 0, 0, 10000);
 }
 
-//nat�rlich sehr unsch�n gel�st, ich gebs zu - funktioniert aber ;)
+//nat?rlich sehr unsch?n gel?st, ich gebs zu - funktioniert aber ;)
 
 protected func SetLoadTime(oID, percent) {
 	var msg;
