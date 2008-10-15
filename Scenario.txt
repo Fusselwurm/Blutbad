@@ -1,6 +1,6 @@
 [Head]
 Icon=19
-Title= 02. Blutbad
+Title= Blutbad [reloaded]
 Version=4,9,9,1
 RoundOptions=0
 NoInitialize=1
