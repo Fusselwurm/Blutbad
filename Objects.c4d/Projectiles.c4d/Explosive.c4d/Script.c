@@ -11,5 +11,5 @@ public func Launch () {
 }
 
 private func Xplode () {
-	Explode(12 + Random(7));
+	Explode(30 + Random(7));
 }

@@ -8,13 +8,13 @@ public func Initialize() {
 	inherited();
 
 	energyNeeded = 100; // energy needed for one shot
-	reloadRate = 5;
+	reloadRate = 10;
 }
 
 //@override
 private func DoShoot(int direction) {
 
-	if (salvoCount > 7) {
+	if (salvoCount > 2) {
 		salvoCount = 0;
 		StopShooting();
 		return(0);

@@ -30,6 +30,6 @@ private func DoShoot(int direction) {
 public func Initialize() {
 	inherited();
 
-	energyNeeded = 33; // energy needed for one shot
-	reloadRate = 5;
+	energyNeeded = 25; // energy needed for one shot
+	reloadRate = 6;
 }

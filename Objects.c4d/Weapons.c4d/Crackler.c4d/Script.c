@@ -7,7 +7,7 @@ local salvoCount;
 public func Initialize() {
 	inherited();
 
-	energyNeeded = 50; // energy needed for one shot
+	energyNeeded = 75; // energy needed for one shot
 	reloadRate = 5;
 }
 
@@ -22,10 +22,10 @@ private func DoShoot(int direction) {
 	salvoCount++;
 
 	var projectile = CreateContents(_CRK);
-	var x = Cos(shootingDirection, 15);
-	var y = Sin(shootingDirection, 15);
-	var xDir = Cos(shootingDirection, 12);
-	var yDir = Sin(shootingDirection, 12);
+	var x = Cos(shootingDirection, 10);
+	var y = Sin(shootingDirection, 10);
+	var xDir = Cos(shootingDirection, 8);
+	var yDir = Sin(shootingDirection, 8);
 	var rDir = 0;
 	//bool Exit (object pObj, int iX, int iY, int iR, int iXDir, int iYDir, int iRDir);
 	Exit(	projectile, x, y, 0, xDir, yDir, Random (180));

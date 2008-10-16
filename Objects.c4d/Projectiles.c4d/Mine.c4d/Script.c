@@ -11,6 +11,6 @@ public func Launch () {
 }
 
 private func Xplode () {
-	Explode(15 + Random(10));
-	Explode(20 + Random(10), CreateObject(ROCK, RandomX(-5, 5), RandomX(-5, 5)));
+	Explode(25 + Random(10));
+	Explode(30 + Random(10), CreateObject(ROCK, RandomX(-5, 5), RandomX(-5, 5)));
 }
