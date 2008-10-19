@@ -1,0 +1,8 @@
+//zu faul ne doofe todo-Liste auf englisch zu schreiben...
+
+- Minen so bearbeiten, dass sie sich automatisch richtigrum drehen.
+- Spielstartknopfkommentar 
+- realistische Magma (zerstörerischer)
+- schönere Flammenwerferflammen
+- einige Waffengrafiken ausstehend
+- 
