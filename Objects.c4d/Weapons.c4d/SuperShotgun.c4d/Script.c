@@ -7,8 +7,8 @@ local salvoCount;
 public func Initialize() {
 	inherited();
 
-	energyNeeded = 25; // energy needed for one shot
-	reloadRate = 3;
+	energyNeeded = 20; // energy needed for one shot
+	reloadRate = 5;
 }
 //@override
 private func DoShoot(int direction) {
