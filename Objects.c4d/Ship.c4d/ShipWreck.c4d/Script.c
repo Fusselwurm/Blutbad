@@ -140,7 +140,7 @@ protected func DeployPlayer()
 
 public func getBloodLevel()
 {
-	return(GetOptions(GetOwner())->getBloodLevel()); //TODO: replace references withrefs to opti^ons obj
+	return(GetOptions(GetOwner())->getBloodLevel()); //TODO: replace references withrefs to options obj
 }
 
 /**
@@ -179,9 +179,7 @@ private func Options() {
 		AddMenuItem(mainMenuArray[i][0], mainMenuArray[i][1], _H_M, 0, 0, 0,mainMenuArray[i][2], 2, i + 20/*offset*/);
 	}
 	if (_KC1_player == 0)
-		AddMenuItem("$DeployPlayer$", "DeployPlayer", _KC1);
-
-
+		AddMenuItem("$DeployPlayer$", "DeployPlayer", _KC1, 0, 0, 0, "Spiel starten");
 
 }
 
