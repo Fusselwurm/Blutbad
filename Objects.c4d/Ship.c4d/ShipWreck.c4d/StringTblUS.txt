@@ -69,6 +69,7 @@ Main_health=Adjust live energy options...
 Main_load=Change reload time...
 Main_weapons=Choose your weapons!
 Main_reset=Give back all lost weapons to the Clonk... Yes, there is a bug. -.-
+start=Deploy Clonk to battle ground.
 
 #Weapons
 NapalmThrower=Napalm Thrower
